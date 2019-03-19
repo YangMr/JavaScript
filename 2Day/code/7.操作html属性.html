@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #box{
+            width:200px;
+            height:200px;
+            border: 2px solid #ccc;
+            margin:30px auto;
+        }
+
+    </style>
+</head>
+<body>
+<input type="text" id="text">
+<input type="button" id="add" value="Add Data">
+
+<div id="box"></div>
+</body>
+</html>
+<script>
+
+    var oText = document.getElementById("text");
+    var oAdd = document.getElementById("add");
+    var oBox = document.getElementById("box");
+
+    //点击获取文本框输入的内容
+    oAdd.onclick = function () {
+       oBox.innerHTML += oText.value;  //文本框的内容
+        oText.value = "";
+    };
+
+</script>

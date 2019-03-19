@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{height:100%;}
+        html,body,div,input,h3{margin:0; padding:0;}
+        #login{z-index:999; display: none; width:350px;height:250px; border:1px solid #ccc; position: absolute; margin:auto; left:0; top:0; right:0; bottom:0;}
+        #login h3{ border-bottom: 1px solid #ccc; background: #eee; font-weight: normal; font-size:18px; text-align: center; line-height: 35px; height:35px; }
+        #login h3 span{ cursor: pointer; font-size: 14px; float: right; position: relative; right:10px; }
+        #inner{z-index:1; display: none; width:100%; height:100%; opacity: 0.3; filter: alpha(opacity=30); background: #000; position: absolute; left:0; top:0;}
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="Clicks">
+
+<div id="login">
+    <h3>login <span id="close">关闭</span></h3>
+</div>
+
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+<p>我想好好学习</p>
+
+<div id="inner"></div>
+</body>
+</html>
+<script>
+
+    //获取元素
+    var oBtn = document.getElementById("btn");
+    var oLogin = document.getElementById("login");
+    var oClose = document.getElementById("close");
+    var oInner = document.getElementById("inner");
+    oBtn.onclick = function () {
+        oLogin.style.display = "block";
+        oInner.style.display = "block";
+        document.body.style.overflow = "hidden";
+    };
+    oClose.onclick = function () {
+        oLogin.style.display = "none";
+        oInner.style.display = "none";
+        document.body.style.overflow = "auto";
+    };
+
+
+</script>

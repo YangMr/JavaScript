@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        strong{color : red;}
+    </style>
+</head>
+<body>
+<input type="button" value="Clicks" id="btn">
+<input type="button" value="Clear" id="clear">
+<p>result : <strong></strong></p>
+</body>
+</html>
+<script>
+
+    var oStrong = document.getElementsByTagName("strong")[0];
+    var oClear = document.getElementById("clear");
+    var oBtn = document.getElementById("btn");
+    oStrong.innerHTML = 0;
+    var num = 0;
+    var timer = null;
+    //开始定时器
+    oBtn.onclick = function () {
+        timer = setInterval(function () {
+            num++;
+            oStrong.innerHTML = num;
+        },100)
+    };
+    //关闭定时器
+    oClear.onclick = function () {
+        clearInterval(timer);
+    }
+
+
+</script>

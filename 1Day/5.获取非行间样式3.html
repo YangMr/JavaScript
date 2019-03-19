@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #box{
+            width:100px;
+            height:100px;
+            background: red;
+        }
+        #box1{
+            width:200px;
+            height:200px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" ></div>
+    <div id="box1"></div>
+</body>
+</html>
+<script>
+
+    var oDiv = document.getElementById("box");
+    var oDiv1= document.getElementById("box1");
+
+
+    function getStyle(element,attr) {
+        if(window.getComputedStyle){
+            return window.getComputedStyle(element,null)[attr];
+        }else{
+            return element.currentStyle[attr];
+        }
+    }
+
+   alert(getStyle(oDiv,"width"));
+    alert(getStyle(oDiv1,"height"));
+    
+    
+    
+
+
+
+</script>

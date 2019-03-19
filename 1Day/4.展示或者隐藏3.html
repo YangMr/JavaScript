@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,div,ul,li,a{margin:0; padding:0;}
+        ul{list-style-type: none; width: 380px; border:1px solid #ccc; margin:50px auto;}
+        ul li{line-height: 33px; padding-left:20px;}
+        ul li a{text-decoration: none; color:#333;}
+    </style>
+</head>
+<body>
+<div class="btn">展示/隐藏</div>
+<hr>
+<ul style="display: block">
+    <li><a href="javascript:;">玩家之徒 - 蔡依林</a></li>
+    <li><a href="javascript:;">原谅我就是这样的女生 - 戴佩妮</a></li>
+    <li><a href="javascript:;">猜不透 - 丁当</a></li>
+    <li><a href="javascript:;">自导自演 - 周杰伦</a></li>
+    <li><a href="javascript:;">浪漫窝 - 弦子</a></li>
+    <li><a href="javascript:;">流年 - 王菲</a></li>
+</ul>
+</body>
+</html>
+<script>
+
+    var oBtn = document.getElementsByClassName("btn")[0];
+    var oUl = document.getElementsByTagName("ul")[0];
+
+    oBtn.onclick = function () {
+        if(oUl.style.display=="block"){
+            oUl.style.display = "none"
+        }else{
+            oUl.style.display = "block";
+        }
+    }
+
+</script>

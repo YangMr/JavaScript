@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #btn{display: block; width:150px; height:30px; margin:50px auto;}
+    </style>
+</head>
+<body>
+<input type="button" value="点击发送验证码" id="btn">
+</body>
+</html>
+<script>
+
+    var oBtn = document.getElementById("btn");
+    var count = 60;
+    var timer = null;
+    oBtn.onclick = function () {
+        this.value = count + "秒后重新发送";
+        var that = this;
+        timer = setInterval(function () {
+            count--;
+            that.value = count + "秒后重新发送"
+            if(count == 0){
+                clearInterval(timer);
+                count = 60;
+                that.value = "点击重新发送";
+            };
+        },1000)
+    }
+
+</script>

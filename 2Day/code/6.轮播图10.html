@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .carousel{
+            width: 672px;
+            height: 350px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel ul{
+            list-style: none;
+        }
+        .carousel ul li{
+            display: none;
+        }
+        .carousel ul li.current{
+            display: block;
+        }
+        .carousel span{
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            top: 130px;
+            cursor: pointer;
+        }
+        .carousel .leftBtn{
+            left: 10px;
+            background: url(img/slide-btnL.png);
+        }
+        .carousel .rightBtn{
+            right: 10px;
+            background: url(img/slide-btnR.png);
+        }
+        .carousel .circles{
+            position: absolute;
+            bottom: 0px;
+            width: 200px;
+            height: 17px;
+            left: 50%;
+            margin-left: -50px;
+        }
+        .carousel .circles ol{
+            list-style: none;
+        }
+        .carousel .circles ol li{
+            float: left;
+            width: 17px;
+            height: 17px;
+            margin-right: 13px;
+            background: gold;
+            border-radius: 50%;
+            cursor: pointer;
+            /*background: url(images/sohu/ico.png) no-repeat -138px -133px;*/
+        }
+        .carousel .circles ol li.current{
+            /*background-position: -125px -133px;*/
+            background: purple;
+        }
+        .carousel .blackmask{
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            height: 60px;
+            background-color: black;
+            opacity: 0.6;
+            filter:alpha(opacity=60);
+        }
+        .carousel h3{
+            position: absolute;
+            bottom: 30px;
+            height: 60px;
+            line-height: 60px;
+            padding-left: 10px;
+            color:white;
+            font-size:18px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="carousel" id="carousel">
+    <div class="imagesList" id="imagesList">
+        <ul>
+            <li class="current">
+                <a href="">
+                    <img src="img/aaa.jpg" alt="" />
+                </a>
+
+                <div class="blackmask"></div>
+                <h3>一周美图|谁的眼色撩人？高圆圆媚，汤唯暖，宋仲基帅炸</h3>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/bbb.jpg" alt="" />
+                </a>
+
+                <div class="blackmask"></div>
+                <h3>男星中规中矩，女星小心机尽显！华</h3>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/ccc.jpg" alt="" />
+                </a>
+
+                <div class="blackmask"></div>
+                <h3>8岁的小公主美美哒田亮为女儿范冰冰庆生晒礼物美照</h3>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/ddd.jpg" alt="" />
+                </a>
+
+                <div class="blackmask"></div>
+                <h3>有爱心的女人最美！黄奕捐赠获澳夫人见证…</h3>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/eee.jpg" alt="" />
+                </a>
+
+                <div class="blackmask"></div>
+                <h3>活泼搞怪不像妈！黄奕女儿森碟走秀呆萌可爱</h3>
+            </li>
+        </ul>
+    </div>
+    <div class="btns">
+        <span class="leftBtn" id="carousel_leftBtn"></span>
+        <span class="rightBtn" id="carousel_rightBtn"></span>
+    </div>
+    <div class="circles" id="circles">
+        <ol>
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+</div>
+
+
+
+</body>
+</html>
+<script>
+
+    //获取元素
+    //获取id为circles元素
+    var oCircles = document.getElementById("circles");
+    //获取id为circles元素里面的li元素,也就是小圆点
+    var aLi = oCircles.getElementsByTagName("li");
+    //获取id为imageList的元素
+    var imgList = document.getElementById("imagesList");
+    //获取id为imageList里面的li元素
+    var imgLi = imgList.getElementsByTagName("li");
+    //获取左按钮
+    var leftBtn = document.getElementById("carousel_leftBtn");
+    //获取右按钮
+    var rightBtn = document.getElementById("carousel_rightBtn");
+    //获取大盒子
+    var oCarousel = document.getElementById("carousel");
+    //初始化一个变量,用来保存下标值,能够控制图片和按钮的切换
+    var index = 0;
+    //初始化一个变量timer,用来保存定时器
+    var timer = null;
+    //点击右按钮执行一个方法
+    rightBtn.onclick = function () {
+        //让下标值进行自增
+        index++;
+        //如果下标值大于四,回到第一张图片
+        if(index>4) index = 0;
+        //调用图片和按钮切换的方法
+        tab(index);
+    };
+    //点击左按钮执行一个方法
+    leftBtn.onclick = function () {
+        //让下标值进行自减
+        index--;
+        //判断如果下标值小于0,显示最后一张图片
+        if(index<0) index = 4;
+        //调用图片和按钮切换的方法
+        tab(index);
+    }
+    //选项卡方法(鼠标移入按钮让图片切换的方法)
+    for(var i=0;i<aLi.length;i++){
+        //给小圆点的li元素自定义一个下标属性index
+        aLi[i].index = i;
+        //给小圆点的li元素添加鼠标移入事件
+        aLi[i].onmouseover = function () {
+            //调用图片和按钮切换的方法
+            tab(this.index)
+        }
+    }
+    //图片和按钮切换的方法
+    function tab(index) {
+        for(var i=0;i<aLi.length;i++){
+            //清空circles下面li的所有类名
+            aLi[i].className = "";
+            //清空图片li的所有类名,也就是让所有的图片隐藏
+            imgLi[i].className = "";
+        }
+        //给得到下标值的元素添加类名
+        aLi[index].className = "current";
+        //给得到下标值的元素添加类名
+        imgLi[index].className = "current";
+    }
+    //定时器的回调函数,作用让图片切换
+    function move() {
+        index++;
+        if(index>4) index = 0;
+        tab(index)
+    }
+    //开启定时器
+    timer = setInterval(move,1000);
+    //当鼠标移入大盒子的时候清除定时器
+    oCarousel.onmouseover = function () {
+        clearInterval(timer);
+    };
+    //当鼠标移出大盒子的时候开启定时器
+    oCarousel.onmouseout = function () {
+        timer = setInterval(move,1000);
+    }
+</script>

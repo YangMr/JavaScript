@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        strong{color : red;}
+    </style>
+</head>
+<body>
+<input type="button" value="Clicks" id="btn">
+<p>result : <strong></strong></p>
+</body>
+</html>
+<script>
+
+    var oStrong = document.getElementsByTagName("strong")[0];
+    var oBtn = document.getElementById("btn");
+    oStrong.innerHTML = 0;
+    var num = 0;
+    oBtn.onclick = function () {
+
+       num++;   // 1 2  3 4 5  6 7 8 9 10
+        if(num > 10) {
+            num = 10;
+            alert("已经是最大值了");
+        }
+       oStrong.innerHTML  = num;  //1 2 3 4 5  6 7 8  9 10
+
+    }
+
+
+</script>

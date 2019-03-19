@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,div,ul,li{margin:0;padding:0;}
+        #tab{width:500px;border:1px solid #ccc;margin:50px auto;}
+        #tab ul{list-style-type: none; overflow: hidden; background: #333;}
+        #tab ul li{float: left; cursor: pointer; width:150px; height:35px;text-align: center;  color:#fff;line-height: 35px;}
+        #tab ul li.active{background: purple;}
+    </style>
+</head>
+<body>
+    <div id="tab">
+        <ul>
+            <li class="active">第一课</li>
+            <li>第二课</li>
+            <li>第三课</li>
+        </ul>
+    </div>
+
+    <ul>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+    </ul>
+</body>
+</html>
+<script>
+
+    var oTab = document.getElementById("tab");
+    var aLi = oTab.getElementsByTagName("li");  //["li","li","li"]
+
+    aLi[0].onclick=function () {
+        // alert("hello")
+        alert(this.className);  //获取元素的类名
+    };
+    aLi[1].onclick=function () {
+        this.className = "active";  //设置元素的类名
+    };
+    aLi[2].onclick=function () {
+        this.className = "active";  //设置元素的类名
+    }
+
+
+
+</script>

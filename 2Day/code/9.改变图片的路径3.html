@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <input type="text" id="imgSrc" value="">
+    <input type="button" id="btn" value="改变图片">
+</form>
+<img id="pic" src="img/1.jpg" alt="">
+
+</body>
+</html>
+<script>
+
+    //获取元素
+    var oBtn = document.getElementById("btn");
+    var oPic = document.getElementById("pic");
+    var oSrc = document.getElementById("imgSrc");
+
+    //点击按钮执行一个方法
+    oBtn.onclick = function () {
+       oPic.src = "img/" + oSrc.value + ".jpg";
+    }
+
+</script>

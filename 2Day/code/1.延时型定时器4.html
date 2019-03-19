@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .box{position:absolute; left:0; top:0; width:150px; background: purple; height:150px; border:1px solid #ccc; margin:0 auto;}
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script>
+    var oBox = document.getElementsByClassName("box")[0];
+    setTimeout(function () {
+        oBox.style.left = "500px";
+    },3000)
+
+</script>

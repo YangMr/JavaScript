@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        strong{color : red;}
+    </style>
+</head>
+<body>
+<input type="button" value="Clicks" id="btn">
+<p>result : <strong></strong></p>
+</body>
+</html>
+<script>
+
+    var oStrong = document.getElementsByTagName("strong")[0];
+    var oBtn = document.getElementById("btn");
+    oStrong.innerHTML = 0;
+    var num = 0;
+    var timer = null;
+    oBtn.onclick = function () {
+        timer = setInterval(function () {
+            num++;
+            if(num >= 20){
+                clearInterval(timer)
+            }
+            oStrong.innerHTML = num;
+        },100)
+    }
+
+
+</script>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .carousel{
+            width: 672px;
+            height: 350px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel ul{
+            list-style: none;
+        }
+        .carousel ul li{
+            display: none;
+        }
+        .carousel ul li.current{
+            display: block;
+        }
+        .carousel span{
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            top: 130px;
+            cursor: pointer;
+        }
+        .carousel .leftBtn{
+            left: 10px;
+            background: url(img/slide-btnL.png);
+        }
+        .carousel .rightBtn{
+            right: 10px;
+            background: url(img/slide-btnR.png);
+        }
+        .carousel .circles{
+            position: absolute;
+            bottom: 0px;
+            width: 200px;
+            height: 17px;
+            left: 50%;
+            margin-left: -50px;
+        }
+        .carousel .circles ol{
+            list-style: none;
+        }
+        .carousel .circles ol li{
+            float: left;
+            width: 17px;
+            height: 17px;
+            margin-right: 13px;
+            background: gold;
+            border-radius: 50%;
+            cursor: pointer;
+            /*background: url(images/sohu/ico.png) no-repeat -138px -133px;*/
+        }
+        .carousel .circles ol li.current{
+            /*background-position: -125px -133px;*/
+            background: purple;
+        }
+        .carousel .blackmask{
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            height: 60px;
+            background-color: black;
+            opacity: 0.6;
+            filter:alpha(opacity=60);
+        }
+        .carousel h3{
+            position: absolute;
+            bottom: 30px;
+            height: 60px;
+            line-height: 60px;
+            padding-left: 10px;
+            color:white;
+            font-size:18px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="carousel">
+    <div class="imagesList" id="imagesList">
+        <ul>
+            <li class="current">
+                <a href="">
+                    <img src="img/aaa.jpg" alt="" />
+                </a>
+
+                <div class="blackmask"></div>
+                <h3>一周美图|谁的眼色撩人？高圆圆媚，汤唯暖，宋仲基帅炸</h3>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/bbb.jpg" alt="" />
+                </a>
+
+                <div class="blackmask"></div>
+                <h3>男星中规中矩，女星小心机尽显！华</h3>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/ccc.jpg" alt="" />
+                </a>
+
+                <div class="blackmask"></div>
+                <h3>8岁的小公主美美哒田亮为女儿范冰冰庆生晒礼物美照</h3>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/ddd.jpg" alt="" />
+                </a>
+
+                <div class="blackmask"></div>
+                <h3>有爱心的女人最美！黄奕捐赠获澳夫人见证…</h3>
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/eee.jpg" alt="" />
+                </a>
+
+                <div class="blackmask"></div>
+                <h3>活泼搞怪不像妈！黄奕女儿森碟走秀呆萌可爱</h3>
+            </li>
+        </ul>
+    </div>
+    <div class="btns">
+        <span class="leftBtn" id="carousel_leftBtn"></span>
+        <span class="rightBtn" id="carousel_rightBtn"></span>
+    </div>
+    <div class="circles" id="circles">
+        <ol>
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+</div>
+
+
+
+</body>
+</html>
+<script>
+
+    //获取元素
+    var oCircles = document.getElementById("circles");
+    var aLi = oCircles.getElementsByTagName("li");
+    var imgList = document.getElementById("imagesList");
+    var imgLi = imgList.getElementsByTagName("li");
+    var leftBtn = document.getElementById("carousel_leftBtn");
+    var rightBtn = document.getElementById("carousel_rightBtn");
+    var index = 0;
+    rightBtn.onclick = function () {
+        index++;
+        if(index>4) index = 0;
+        for(var i=0;i<aLi.length;i++){
+            imgLi[i].className = "";
+            aLi[i].className = "";
+        }
+        aLi[index].className = "current";
+        imgLi[index].className = "current";
+    };
+    
+    leftBtn.onclick = function () {
+        index--;
+        if(index<0) index = 4;
+        for(var i=0;i<aLi.length;i++){
+            imgLi[i].className = "";
+            aLi[i].className = "";
+        }
+        aLi[index].className = "current";
+        imgLi[index].className = "current";
+    }
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+            //清空circles下面li的所有类名
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].className = "";
+                imgLi[i].className = "";
+            }
+            //给当前鼠标移入的元素添加类名
+            aLi[this.index].className = "current";
+            imgLi[this.index].className = "current";
+        }
+    }
+
+
+    setInterval(function () {
+        index++;
+        if(index>4) index = 0;
+        for(var i=0;i<aLi.length;i++){
+            imgLi[i].className = "";
+            aLi[i].className = "";
+        }
+        aLi[index].className = "current";
+        imgLi[index].className = "current";
+    },1000);
+</script>

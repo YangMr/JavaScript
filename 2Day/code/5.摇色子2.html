@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            padding: 200px;
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            border: 1px solid #ccc;
+            font-size: 50px;
+            text-align: center;
+            line-height: 100px;
+        }
+        button{
+            padding: 6px;
+        }
+        .result{
+            color: red;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="box"></div>
+    <button id="start">开始</button>
+    <button id="end">结束</button>
+    <p id="result" class="result"></p>
+</body>
+</html>
+<script>
+
+    //封装获取随机数的方法
+   function getRandom(min,max) {
+        var result = max-min;
+        var resultNum = Math.floor(Math.random() * result +1);
+        return resultNum;
+   }
+
+   //获取元素
+    var oStart = document.getElementById("start");
+    var oEnd = document.getElementById("end");
+    var oBox = document.getElementById("box");
+    var oResult = document.getElementById("result");
+    var timer = null;
+    oStart.onclick = function () {
+        timer = setInterval(function () {
+            oBox.innerText = getRandom(1,7);
+        },10)
+    };
+    
+    oEnd.onclick = function () {
+        clearInterval(timer);
+        if(oBox.innerHTML > 3){
+            oResult.innerHTML = "大";
+        }else{
+            oResult.innerText = "小"
+        }
+    }
+
+
+</script>

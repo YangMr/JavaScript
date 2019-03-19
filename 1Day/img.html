@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        html,div,body,h3{margin:0; padding:0;}
+        h3{cursor: pointer; background: url("img/ico.gif") no-repeat 200px 18px; width:220px;height:35px;margin:100px auto; border:1px solid #ccc; text-align: center;line-height: 35px;}
+
+    </style>
+</head>
+<body>
+    <h3>播放列表...</h3>
+</body>
+</html>
+<script>
+
+    var oH3 = document.getElementsByTagName("h3")[0];
+    oH3.onmouseover = function () {
+        this.style.background = "url('img/ico.gif') no-repeat 200px -9px"
+    };
+    oH3.onmouseout = function () {
+        this.style.background = "url('img/ico.gif') no-repeat 200px 18px"
+    };
+
+</script>

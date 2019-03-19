@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,div,ul,li,a{margin:0; padding:0;}
+        ul{list-style-type: none; width: 380px; border:1px solid #ccc; margin:50px auto;}
+        ul li{line-height: 33px; padding-left:20px;}
+        ul li a{text-decoration: none; color:#333;}
+    </style>
+</head>
+<body>
+<input type="button" value="显示">
+<input type="button" value="隐藏">
+<hr>
+<ul>
+    <li><a href="javascript:;">玩家之徒 - 蔡依林</a></li>
+    <li><a href="javascript:;">原谅我就是这样的女生 - 戴佩妮</a></li>
+    <li><a href="javascript:;">猜不透 - 丁当</a></li>
+    <li><a href="javascript:;">自导自演 - 周杰伦</a></li>
+    <li><a href="javascript:;">浪漫窝 - 弦子</a></li>
+    <li><a href="javascript:;">流年 - 王菲</a></li>
+</ul>
+</body>
+</html>
+<script>
+
+    var aInput = document.getElementsByTagName("input");
+    var oUl = document.getElementsByTagName("ul")[0];
+    aInput[0].onclick = function () {
+        oUl.style.display = "block";
+    };
+    aInput[1].onclick = function () {
+        oUl.style.display="none";
+    };
+
+</script>

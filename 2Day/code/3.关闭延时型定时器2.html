@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{width:1000px;  height:160px; background: #f60; margin-left: -500px; position: fixed; bottom:0; left:50%;}
+    </style>
+</head>
+<body>
+<input type="button" value="start" id="start">
+<input type="button" value="clear" id="clear">
+
+<div id="box">我是广告</div>
+</body>
+</html>
+<script>
+
+ var oStart = document.getElementById("start");
+ var oClear = document.getElementById("clear");
+ var oBox = document.getElementById("box");
+
+ oStart.onclick = function () {
+     alert(setTimeout(function () {
+         oBox.style.background = "yellow";
+     },3000));
+     alert(setTimeout(function () {
+         oBox.style.width = "500px";
+     },5000));
+ };
+
+ oClear.onclick = function () {
+     clearTimeout(2);
+ }
+
+
+</script>
