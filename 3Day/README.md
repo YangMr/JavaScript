@@ -40,4 +40,10 @@
 ## 9.作业
     
     接口地址:
-        https://resources.ninghao.net/wxapp-case/db.json    
+        https://resources.ninghao.net/wxapp-case/db.json 
+
+## 10.效果图
+
+![](https://i.imgur.com/UrBri9N.png)
+![](https://i.imgur.com/07CA27r.png)
+![](https://i.imgur.com/uhNj7DG.png)
