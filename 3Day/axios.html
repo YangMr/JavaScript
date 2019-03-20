@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <button id="btn">GET DATA</button>
+</body>
+</html>
+<script>
+
+    // axios.get("请求的数据地址",{params : {name : "",password : "1213123"}}).then(function (response) {
+    //     //成功的方法
+    //     console.log(response);
+    // },function (error) {
+    //     //失败的方法
+    //     console.log(error);
+    // });
+
+    var oBtn = document.getElementById("btn");
+    
+    oBtn.onclick = function () {
+
+        axios.get("https://resources.ninghao.net/wxapp-case/db.json").then(function (response) {
+            console.log(response);
+        },function (error) {
+            console.log("错误信息:" + error)
+        });
+    };
+
+</script>

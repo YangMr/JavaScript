@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">delete</button>
+</body>
+</html>
+<script>
+
+   var obj = {
+       name : "jack",
+       age : 20
+   };
+   console.log(obj.name)
+   console.log(obj.age)
+
+    var oBtn = document.getElementById("btn");
+   oBtn.onclick = function () {
+       delete obj.name;
+       console.log(obj.name);
+       console.log(obj.age);
+   }
+
+</script>

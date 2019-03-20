@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        html,body,div,ul,li{margin:0; padding:0;}
+        #list{width:640px;margin:0 auto;}
+        #list ul{width:100%; list-style-type: none;}
+        #list ul li img{width:100%; height: 100%; display: block;}
+
+    </style>
+</head>
+<body>
+    <div id="list">
+
+    </div>
+</body>
+</html>
+<script>
+
+    var data = {
+        slides: [
+            {
+                "id": 5,
+                "header": "全新一代发现",
+                "sub_header": "Discovery",
+                "description": "全尺寸七座 SUV，现已接受预订。",
+                "image": "https://resources.ninghao.net/landrover/discover-1.jpg"
+            },
+            {
+                "id": 3,
+                "header": "全新揽胜星脉",
+                "sub_header": "Range Rover",
+                "description": "标新立异的前卫揽胜。",
+                "image": "https://resources.ninghao.net/landrover/velar-1.jpg"
+            },
+            {
+                "id": 6,
+                "header": "发现神行",
+                "sub_header": "Discovery",
+                "description": "发现的绝佳时刻。",
+                "image": "https://resources.ninghao.net/landrover/discovery-sport-1.jpg"
+            }
+        ]
+    };
+
+    var oList = document.getElementById("list");
+
+    for(var i=0;i<data.slides.length;i++){
+        var oUl = document.createElement("ul");
+        for( j in data.slides[i]){
+            var oli = document.createElement("li");
+            oli.innerHTML = data.slides[i][j];
+              if(j == "image"){
+                  oli.innerHTML = "<img src='"+ data.slides[i][j] +"'>"
+              }
+            oUl.appendChild(oli);
+
+        }
+
+       oList.appendChild(oUl);
+
+       // oUl.innerHTML = "<li>"+data.slides[i].id+"</li><li>" + data.slides[i].header +"</li><li>" +data.slides[i].sub_header+ "</li><li><img src='"+  data.slides[i].image +"'></li>";
+    }
+
+    // console.log(data.slides[0])
+    // console.log(data.slides[1])
+    // console.log(data.slides[2])
+
+
+
+</script>
