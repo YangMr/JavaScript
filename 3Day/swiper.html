@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+    <style>
+        .swiper-container {
+            width: 600px;
+            height: 300px;
+            border:1px solid #ccc;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+
+    <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- 如果需要滚动条 -->
+    <div class="swiper-scrollbar"></div>
+</div>
+
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+<script>
+
+    //1.创建swiper实例
+    new Swiper(".swiper-container",{
+        direction: 'horizontal',
+        loop : true,
+        pagination: {
+            el: '.swiper-pagination',
+            type : "progressbar"
+        }
+    })
+
+    // var mySwiper = new Swiper ('.swiper-container', {
+    //     direction: 'vertical', // 垂直切换选项
+    //     loop: true, // 循环模式选项
+    //
+    //     // 如果需要分页器
+    //     pagination: {
+    //         el: '.swiper-pagination',
+    //     },
+    //
+    //     // 如果需要前进后退按钮
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //
+    //     // 如果需要滚动条
+    //     scrollbar: {
+    //         el: '.swiper-scrollbar',
+    //     },
+    // })
+
+</script>

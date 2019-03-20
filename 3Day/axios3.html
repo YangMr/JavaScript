@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <button id="btn">GET HOT CITY</button>
+    <button id="btn1">GET ALL CITY</button>
+    <ul id="hotCity">
+
+    </ul>
+</body>
+</html>
+<script>
+
+    // axios.get("请求的数据地址",{params : {name : "",password : "1213123"}}).then(function (response) {
+    //     //成功的方法
+    //     console.log(response);
+    // },function (error) {
+    //     //失败的方法
+    //     console.log(error);
+    // });
+
+    var oBtn = document.getElementById("btn");
+    var oBtn1 = document.getElementById("btn1");
+    var hotCity = document.getElementById("hotCity");
+    //获取热门城市
+    oBtn.onclick = function () {
+        axios.post("https://elm.cangdu.org/admin/login",{user_name : "admin",password : "123456"}).then(function (response) {
+           console.log(response);
+        },function (error) {
+            console.log("错误信息:" + error)
+        });
+    };
+
+    //获取所有城市
+    oBtn1.onclick = function () {
+        axios.get("https://elm.cangdu.org/v1/cities",{params : {type : "group"}}).then(function (response) {
+            console.log(response);
+        },function (error) {
+            console.log("错误信息:" + error);
+        })
+    }
+
+
+</script>
