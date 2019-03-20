@@ -35,4 +35,9 @@
     
     传递的参数: { params : { userName : "",passWord : "" } }
     successCallBck : 成功的回调函数,里面有一个参数(response),用来接收请求成功后的数据
-    errorCallBack : 失败的回调函数,里面有一个参数(error),error保存着错误信息    
+    errorCallBack : 失败的回调函数,里面有一个参数(error),error保存着错误信息
+    
+## 9.作业
+    
+    接口地址:
+        https://resources.ninghao.net/wxapp-case/db.json    
