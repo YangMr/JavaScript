@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #time{
+            width: 100%;
+            height:300px;
+            line-height: 300px;
+            text-align: center;
+            background: #333;
+            color: #fff;
+            font-size:35px;
+        }
+    </style>
+</head>
+<body>
+    <div id="time">xxx年xxx月xxx日xxx时xxx分xxx秒星期xxx</div>
+</body>
+</html>
+<script>
+    //获取元素
+    var oTime = document.getElementById("time");
+
+    //补零函数
+    function zero(n) {
+        if(n < 10){
+            return "0" + n;
+        }else{
+            return "" + n;
+        }
+    }
+
+    function time() {
+        //创建一个日期对象,用变量oDate保存
+        var oDate = new Date();
+        //获取年份
+        var year = oDate.getFullYear();
+        //获取月份
+        var month = oDate.getMonth();
+        //获取日期
+        var date = oDate.getDate();
+        //获取时
+        var hours = oDate.getHours();
+        //获取分
+        var minutes = oDate.getMinutes();
+        //获取秒
+        var seconds = oDate.getSeconds();
+        //获取星期
+        var day = oDate.getDay();
+        var oWeek = null;
+        //判断星期
+        switch (day) {
+            case 0 :
+                oWeek = "日";
+                break;
+            case 1 :
+                oWeek = "一"
+                break;
+            case 2 :
+                oWeek = "二"
+                break;
+            case 3 :
+                oWeek = "三"
+                break;
+            case 4 :
+                oWeek = "四"
+                break;
+            case 5 :
+                oWeek = "五"
+                break;
+            case 6 :
+                oWeek = "六"
+                break;
+        }
+
+        //将获取到的时间放入到oTime里面
+        oTime.innerHTML = zero(year) + "年" + zero((month+1)) + "月" + zero(date) + "日" + zero(hours) + "时" + zero(minutes) + "分" + zero(seconds) + "秒星期" + oWeek ;
+    }
+    
+    time();
+
+    //开启定时器
+    setInterval(function () {
+        time();
+    },1000);
+
+</script>

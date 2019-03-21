@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="getFullYear">获取年份</button>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+<script>
+
+   var box = new Date(1900286378411);
+   console.log(box)
+
+   var oYear = document.getElementById("getFullYear");
+   var aLi = document.getElementsByTagName("li");
+   oYear.onclick = function () {
+        aLi[0].innerHTML = box.setFullYear(2030);
+        console.log(box);
+   }
+
+</script>

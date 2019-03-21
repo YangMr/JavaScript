@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="getFullYear">毫秒数</button>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+<script>
+
+   var box = new Date();
+   console.log(box)
+
+   var oYear = document.getElementById("getFullYear");
+   var aLi = document.getElementsByTagName("li");
+   oYear.onclick = function () {
+      aLi[0].innerHTML = box.setTime();
+   }
+
+</script>

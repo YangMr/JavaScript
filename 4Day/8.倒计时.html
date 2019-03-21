@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1{background: #333; height:300px; color: #fff; text-align: center; line-height: 300px;}
+    </style>
+</head>
+<body>
+<h1 id="time">距离年底还剩xxxx天xxxx小时xxx分钟xxx秒</h1>
+</body>
+</html>
+<script>
+
+    /*需求:
+        求出到年底还剩下多少天多少时多少分多少秒
+        年底的时间毫秒数 - 当前的时间毫秒数 = 剩下的时间毫秒数
+        接下来只需要将剩下来的毫秒数转换成天时分秒*/
+
+    //获取元素
+    var oTime = document.getElementById("time");
+
+    //补零函数
+    function zero(n) {
+        if(n < 10){
+            return "0" + n;
+        }else{
+            return "" + n;
+        }
+    }
+
+    function time() {
+        //创建日期对象
+        var oDate = new Date();
+        //获取当前日期的毫秒数
+        var currentTime = oDate.getTime();
+        //设置年底的日期
+        var Time = new Date(2019,11,31,0,0,0);
+        //获取年底日期的毫秒数
+        var wlTime = Time.getTime();
+        //年底的毫秒数 - 当前的毫秒数
+        var t = wlTime - currentTime;
+        //将剩下的毫秒数转化成天数
+        var date = parseInt(t / (24 * 60 * 60 *1000));
+        //得到剩余的毫秒数
+        t = t % (24 * 60 * 60 *1000);
+        //将剩下的毫秒数转换成小时
+        var hours = parseInt(t / (60*60*1000));
+        //得到剩余的毫秒数
+        t = t % (60 *60 *1000);
+        //将剩下的毫秒数转换成分钟
+        var min = parseInt(t / (60 *1000));
+        //得到剩余的毫秒数
+        t = t % (60 * 1000);
+        //将剩余的毫秒数转换成秒
+        var seconds = parseInt(t / 1000);
+
+        oTime.innerText = "距离年底还剩"+zero(date)+"天"+zero(hours)+"小时"+zero(min)+"分钟"+zero(seconds)+"秒";
+    }
+    time()
+
+    setInterval(time,1000)
+
+</script>
