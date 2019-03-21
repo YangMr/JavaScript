@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    //创建日期对象
+    var time = new Date();
+    //设置当前的月份
+    time.setMonth(time.getMonth() + 1);
+    //设置当前月份的最后一天
+    time.setDate(0);
+    console.log(time.getDate());
+
+</script>

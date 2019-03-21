@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{background: #333; text-align: center; color: #fff; font-size: 50px; padding-top: 200px;}
+    </style>
+</head>
+<body>
+
+<img src="img/0.png" alt="">
+<img src="img/0.png" alt="">
+:
+<img src="img/0.png" alt="">
+<img src="img/0.png" alt="">
+:
+<img src="img/0.png" alt="">
+<img src="img/0.png" alt="">
+
+</body>
+</html>
+<script>
+
+    //创建补零函数
+    function zero(n){
+        if(n < 10){
+            return "0" + n;
+        }else{
+            return "" + n;
+        }
+    }
+
+    var str = "";
+    function time() {
+        //创建日期对象
+        var oDate = new Date();
+//获取到当前时间的小时
+        var hours = oDate.getHours();
+//获取到当前时间的分钟
+        var min = oDate.getMinutes();
+//获取到当前时间的秒数
+        var seconds = oDate.getSeconds();
+
+
+
+        str = zero(hours ) + zero(min) + zero(seconds);
+        var aImg = document.getElementsByTagName("img");
+        for(var i=0;i<str.length;i++){
+            aImg[i].src = "img/" + str.charAt(i) + ".png";
+        }
+    }
+
+    time();
+
+    setInterval(time,1000)
+
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{background: #333; text-align: center; color: #fff; font-size: 50px; padding-top: 200px;}
+    </style>
+</head>
+<body>
+
+<img src="img/0.png" alt="">
+<img src="img/0.png" alt="">
+:
+<img src="img/0.png" alt="">
+<img src="img/0.png" alt="">
+:
+<img src="img/0.png" alt="">
+<img src="img/0.png" alt="">
+
+</body>
+</html>
+<script>
+
+var str = "141630";
+var aImg = document.getElementsByTagName("img");
+for(var i=0;i<str.length;i++){
+    aImg[i].src = "img/" + str[i] + ".png";
+}
+
+</script>

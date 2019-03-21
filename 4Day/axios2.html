@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+    <style>
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        body,div,img,p,ul,li,h1,h2,h3,h4,h5,h6{margin: 0; padding: 0;}
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color:#000;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            /*display: -webkit-box;*/
+            /*display: -ms-flexbox;*/
+            /*display: -webkit-flex;*/
+            /*display: flex;*/
+            /*-webkit-box-pack: center;*/
+            /*-ms-flex-pack: center;*/
+            /*-webkit-justify-content: center;*/
+            /*justify-content: center;*/
+            /*-webkit-box-align: center;*/
+            /*-ms-flex-align: center;*/
+            /*-webkit-align-items: center;*/
+            /*align-items: center;*/
+        }
+        #wrapper{
+            max-width: 640px;
+            min-width: 320px;
+            height:100%;
+            margin: 0 auto;
+        }
+        #wrapper img{
+            display: block;
+            width: 100%;
+            height:250px;
+        }
+        #wrapper .sub_header{
+            padding: 35px 0 20px 0;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+        #wrapper .header{
+            padding-bottom: 25px;
+            font-size: 30px;
+        }
+        #wrapper .description{
+            padding-bottom: 80px;
+            font-size: 14px;
+        }
+        #wrapper .btn{
+            padding-bottom: 45px;
+        }
+        #wrapper .btn .n{
+            border:none;
+            padding:10px 20px;
+            outline: none;
+            cursor: pointer;
+        }
+        #wrapper .btn button.active{
+            background: #000;
+            color: #fff;
+        }
+        #wrapper .swiper-pagination{
+            top:580px;
+        }
+    </style>
+</head>
+<body>
+<!-- Swiper -->
+<div id="wrapper">
+    <div class="swiper-container">
+        <div class="swiper-wrapper" id="swiper">
+            <div class="swiper-slide">
+                <!--<p><img src="https://resources.ninghao.net/landrover/discover-1.jpg" alt=""></p>-->
+                <!--<h4 class="sub_header">Discovery</h4>-->
+                <!--<h1 class="header">全新一代发现</h1>-->
+                <!--<p class="description">全尺寸七座 SUV，现已接受预订。</p>-->
+                <!--<p class="btn">-->
+                    <!--<button class="n">预约试驾</button>-->
+                    <!--<button class="n active">了解更多</button>-->
+                <!--</p>-->
+            </div>
+            <div class="swiper-slide">
+                <!--<p><img src="https://resources.ninghao.net/landrover/velar-1.jpg" alt=""></p>-->
+                <!--<h4 class="sub_header">Range Rover</h4>-->
+                <!--<h1 class="header">全新揽胜星脉</h1>-->
+                <!--<p class="description">标新立异的前卫揽胜。</p>-->
+                <!--<p class="btn">-->
+                    <!--<button class="n">预约试驾</button>-->
+                    <!--<button class="n active">了解更多</button>-->
+                <!--</p>-->
+            </div>
+            <div class="swiper-slide">
+                <!--<p><img src="https://resources.ninghao.net/landrover/discovery-sport-1.jpg" alt=""></p>-->
+                <!--<h4 class="sub_header">Discovery</h4>-->
+                <!--<h1 class="header">发现神行</h1>-->
+                <!--<p class="description">发现的绝佳时刻。</p>-->
+                <!--<p class="btn">-->
+                    <!--<button class="n">预约试驾</button>-->
+                    <!--<button class="n active">了解更多</button>-->
+                <!--</p>-->
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+</body>
+</html>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        spaceBetween: 30,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+    var oSwiper = document.getElementsByClassName("swiper-slide");
+    axios.get("https://resources.ninghao.net/wxapp-case/db.json ").then(function (response) {
+        for(var i=0;i<response.data.slides.length;i++){
+            oSwiper[i].innerHTML = "<p><img src=\""+response.data.slides[i].image+"\" alt=\"\"></p>\n" +
+                "                <h4 class=\"sub_header\">"+response.data.slides[i].sub_header+"</h4>\n" +
+                "                <h1 class=\"header\">"+response.data.slides[i].header+"</h1>\n" +
+                "                <p class=\"description\">"+ response.data.slides[i].description+"</p>\n" +
+                "                <p class=\"btn\">\n" +
+                "                    <button class=\"n\">预约试驾</button>\n" +
+                "                    <button class=\"n active\">了解更多</button>\n" +
+                "                </p>";
+        }
+    },function (error) {
+        console.log("错误信息:" + error);
+    })
+
+
+</script>
