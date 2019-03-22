@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,div,ul,li,a,h1,h2,h3,h4,h5,h6{margin: 0; padding: 0;}
+        body{background: #e0e0e0;}
+        #header{width: 100%; background: url("img/header_bg.png") repeat-x;}
+        #header .header_center{height:30px; line-height: 30px; width: 980px; margin: 0 auto;}
+        #header .header_logo{float: left; width: 100px; height: 30px;}
+        #header .header_member{position: relative; float: right; width: 100px ; background: url("img/arrow.png") no-repeat 75px center;}
+        #header .header_member ul{ position: absolute; left:0; width: 100px; top:30px; list-style-type: none; background: #eee; display: none; border:1px solid #ccc;}
+        #header .header_member li{cursor: pointer;}
+        #header .header_reg{float: right; padding:0 10px;}
+        #header .header_login{float: right; padding:0 10px;}
+
+        #send{width: 550px; display: none; background: #fff; height:350px; border:1px solid #ccc; position: absolute; left:0;top:0;bottom:0; right:0; margin: auto;}
+        #send h3{height:40px; line-height: 40px; background: url("img/login_header.png"); text-align: center; font-size: 16px; border-bottom:1px solid #ccc;}
+        #send h3 img{float: right; position: relative; top:15px; right:15px; cursor: pointer;}
+
+        #container{width: 980px;  overflow: hidden; margin: 20px auto;}
+        #container .con_list{width: 260px; float: left; height:400px; background: #eee;}
+        #container .con_article{width: 710px; background: #eee; float: right;}
+        #container .content{background: #fff; margin-bottom:20px;  height:190px; overflow: hidden;}
+        #container .content h3{height: 40px; padding-left: 20px; font-size: 16px; line-height: 40px; background: url("img/login_header.png");}
+        #container h3 span{float: right; position: relative; right:20px;}
+        #container .content .index{ height:120px; padding: 20px;}
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="header_center">
+            <div class="header_logo"><img  src="img/logo.gif" alt=""></div>
+            <div class="header_member" id="header_member">
+                个人中心
+                <ul class="list" id="list">
+                    <li>发文</li>
+                    <li>换肤</li>
+                    <li>帮助</li>
+                    <li>退出</li>
+                </ul>
+            </div>
+            <div class="header_reg">注册</div>
+            <div class="header_login">登录</div>
+        </div>
+    </div>
+
+    <div id="container">
+        <div class="con_list">123</div>
+        <div class="con_article" id="con_article">
+            <!--<div class="content">-->
+                <!--<h3>文章标题 <span id="time">2019-03-22 09:53:24</span></h3>-->
+                <!--<div class="index">-->
+                    <!--我想好好学习我想好好学习我想好好学习我想好好学习我想好好学习-->
+                    <!--我想好好学习我想好好学习我想好好学习我想好好学习我想好好学习-->
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="content">-->
+                <!--<h3>文章标题 <span id="time">2019-03-22 09:53:24</span></h3>-->
+                <!--<div class="index">-->
+                    <!--我想好好学习我想好好学习我想好好学习我想好好学习我想好好学习-->
+                    <!--我想好好学习我想好好学习我想好好学习我想好好学习我想好好学习-->
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="content">-->
+                <!--<h3>文章标题 <span id="time">2019-03-22 09:53:24</span></h3>-->
+                <!--<div class="index">-->
+                    <!--我想好好学习我想好好学习我想好好学习我想好好学习我想好好学习-->
+                    <!--我想好好学习我想好好学习我想好好学习我想好好学习我想好好学习-->
+
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+
+    <div id="send">
+        <h3>发表博文 <img id="close" src="img/close.png" alt=""></h3>
+        <div class="form">
+            <p>
+                <label for="">标题:</label>
+                <input id="title" type="text">
+            </p>
+            <p>
+                <label for="">内容:</label>
+                <textarea id="cont" name="" id="" cols="30" rows="10"></textarea>
+            </p>
+            <p>
+                <input type="button"  id="btn" value="发表">
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+var oMember = document.getElementById("header_member");
+var oList = document.getElementById("list");
+var oClose = document.getElementById("close");
+var oSend = document.getElementById("send");
+var oArticle = oList.children[0];
+var oCon = document.getElementById("con_article");
+var oBtn = document.getElementById("btn");
+var oTitle = document.getElementById("title");
+var oCont = document.getElementById("cont");
+var obj = {}
+var article = {
+    text : [
+        // {title : "文章标题5",content : "这是一段内容",time : "2019-03-22 09:53:24"},
+        // {title : "文章标题4",content : "这是一段内容",time : "2019-03-22 09:53:24"}
+    ]
+};
+
+var oDate = new Date();
+var year = oDate.getFullYear();
+var month = oDate.getMonth();
+var date = oDate.getDate();
+var hours = oDate.getHours();
+var mini = oDate.getMinutes();
+var seconds = oDate.getSeconds();
+
+oBtn.onclick = function () {
+    obj.title = oTitle.value;
+    obj.content = oCont.value;
+    obj.time = year + "-" + month + "-" + date + " " + hours + ":" + mini + ":" + seconds ;
+    article.text.unshift(obj);
+
+    oSend.style.display = "none";
+    setTimeout(function () {
+      inner();
+    },1000);
+    oTitle.value = "";
+    oCont.value = "";
+    console.log(article.text)
+};
+function inner() {
+    for(var i=0;i<article.text.length;i++){
+        var div = document.createElement("div");
+        div.className = "content";
+        div.innerHTML = "<h3>"+ article.text[i].title +"<span>"+ article.text[i].time +"</span></h3><div class='index'>"+  article.text[i].content+"</div>"
+        oCon.appendChild(div);
+    }
+}
+// inner();
+
+//点击关闭按钮让发表文章模块小时
+    oClose.onclick = function(){
+        oSend.style.display = "none";
+    };
+//点击发文让发表文章模块显示
+    oArticle.onclick = function(){
+        oSend.style.display = "block";
+    };
+
+//鼠标移入
+    oMember.onmouseover = function () {
+        oList.style.display = "block";
+        this.style.background = "url(\"img/arrow2.png\") no-repeat 75px center";
+    };
+//鼠标移出
+    oMember.onmouseout = function () {
+        oList.style.display = "none";
+        this.style.background = "url(\"img/arrow.png\") no-repeat 75px center";
+    }
+
+</script>
