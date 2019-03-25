@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    //创建cookie,保存到浏览器
+    function setCookie(name,value,expires,path,domain,secure) {
+        //用一个变量保存设置的键值对,并且进行编码
+        var cookieText=encodeURIComponent(name)+"="+encodeURIComponent(value);
+        //设置过期时间
+        if(expires instanceof Date){
+            cookieText+=";expires="+expires;
+        }
+        //设置访问的路径
+        if(path){
+            cookieText+=";path="+ path;
+        }
+        //设置访问的域名
+        if(domain){
+            cookieText+=";domain="+domain;
+        }
+        //设置访问的协议
+        if(secure){
+            cookieText+=";secure"
+        }
+        //写入cookie
+        document.cookie=cookieText;
+    }
+
+    setCookie("name","jack");
+    setCookie("userName","张三");
+    setCookie("age",20)
+
+    function getCookie(name) {
+        //userName=
+        var cookieName = encodeURIComponent(name) + '=';
+        //返回属性名的索引
+        var cookieStart = document.cookie.indexOf(cookieName);
+        //创建一个变量,用来保存cookie的值
+        var cookieValue = null;
+        //根据属性名查找cookie,如果大于0,那么这条cookie则存在,如果小于,则表示不存在
+        if(cookieStart >= 0){
+            var cookieEnd = document.cookie.indexOf(';', cookieStart);
+            if(cookieEnd == -1){
+                cookieEnd = document.cookie.length;
+            }
+            cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
+        }
+        return cookieValue;
+    }
+
+
+
+    // //name=jack; userName=%E5%BC%A0%E4%B8%89; age=20
+    // function getCookie(name) {
+    //     var strCookie = document.cookie;
+    //     var arrCookie = strCookie.split(";");
+    //     for(var i=0;i<arrCookie.length;i++){
+    //         var arr = arrCookie[i].split("=");
+    //         if(arr[0] == name){
+    //            return arr[1]
+    //         }
+    //         return "";
+    //     }
+    // }
+    //
+    // getCookie("")
+
+
+</script>

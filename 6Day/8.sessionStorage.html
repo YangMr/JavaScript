@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">clicks</button>
+</body>
+</html>
+<script>
+    btn.onclick = function(){
+        //使用localstorage进行存储数据
+        sessionStorage.setItem("maxName","jack");
+        sessionStorage.setItem("maxName1","jack1");
+        sessionStorage.setItem("maxName2","jack2");
+        sessionStorage.setItem("maxName3","jack3");
+    }
+
+    // sessionStorage.setItem("maxName","rose")
+    sessionStorage.removeItem("maxName3")
+
+    sessionStorage.clear()
+
+    console.log(sessionStorage.getItem("maxName"))
+    console.log(sessionStorage.getItem("maxName1"))
+    console.log(sessionStorage.getItem("maxName2"))
+    console.log(sessionStorage.getItem("maxName3"))
+    //
+    // console.log("key:" + localStorage.key("1"))
+
+</script>

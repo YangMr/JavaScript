@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div,ul,li,em,span,h2{margin: 0; padding: 0;}
+        ul,ol{list-style-type: none;}
+        body{
+            font-size: 12px;
+            font-weight: normal;
+        }
+        .login_skin{
+            height: 25px;
+            background: #E8E8E8;
+            border: 1px solid #e9e8e5;
+            width: 215px;
+            color: #333;
+            line-height: 25px;
+            margin: 25px 0px 25px 10px;
+            padding-left: 15px;
+        }
+        .login_skin li{
+            float: left;
+        }
+        .login_skin li span{
+            margin: 7px 4px 0 0;
+            cursor: pointer;
+            display: block;
+        }
+        .login_skin li em{
+            display: block;
+            height: 9px;
+            width: 10px;
+            overflow: hidden;
+            text-indent: -9999px;
+        }
+        .login_skin li span.on{
+            border: 1px solid #333;
+            cursor: default;
+        }
+        .login_skin li em.sk_blue{
+            background-color: purple;
+        }
+        .login_skin li em.sk_sp{
+            background-color:#e64c13;
+        }
+        .login_skin li em.sk_byu{
+            background-color: #b7a37a;
+        }
+
+        #wrapper{
+            overflow: hidden;
+            height: 1%;
+        }
+        #wrapper .container_l{
+            margin-right: -244px;
+            float: left;
+            width: 100%;
+        }
+        #wrapper .bb{
+            border: 2px solid #2086b3;
+        }
+        #wrapper .main{
+            margin-right: 254px;
+            margin-left: 10px;
+            height: 300px;
+        }
+        #wrapper .container_r{
+            width: 230px;
+            float: right;
+        }
+        #footer{
+            height: 30px;
+            margin: 30px 10px 0 10px;
+        }
+        .footer{
+            background: #2086b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="login_skin" id="skin">
+            <ul>
+                <li>选择页面风格：</li>
+                <li>
+                    <span id="blue_sp" class="on">
+                        <em class="sk_blue"></em>
+                    </span>
+                </li>
+                <li>
+                    <span id="or_sp">
+                        <em class="sk_sp"></em>
+                    </span>
+                </li>
+                <li>
+                    <span id="byu_sp">
+                        <em class="sk_byu"></em>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div class="container_l">
+            <div class="main bb">
+                <h2>换肤测试</h2>
+            </div>
+        </div>
+        <div class="container_r bb">
+            <h2>换肤测试</h2>
+        </div>
+    </div>
+    <div id="footer" class="footer"></div>
+</body>
+</html>

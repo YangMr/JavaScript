@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    // document.cookie = "userName=" + encodeURIComponent("张三");
+    // document.cookie = "userPass=123456";
+
+    //创建cookie,保存到浏览器
+    function setCookie(name,value,expires,path,domain,secure) {
+        //用一个变量保存设置的键值对,并且进行编码
+        var cookieText = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+        //设置过期时间
+        if(expires instanceof Date){
+            cookieText += "expires=" + expires;
+        }
+        //设置访问的路径
+        if(path){
+            cookieText += "path=" + path;
+        }
+        //设置访问的域名
+        if(domain){
+            cookieText += "domain=" + domain;
+        }
+        //设置访问的协议
+        if(secure){
+            cookieText += "secure"
+        }
+        //写入cookie
+        document.cookie = cookieText;
+    }
+
+    setCookie("name","rose")
+</script>

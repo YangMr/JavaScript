@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        html,body,div,p,ul,li,a,h2{margin: 0;padding: 0;}
+        #box{width:350px; height:250px; border:1px solid #ccc; margin: auto; position: absolute; left:0; top:0; bottom:0; right:0;}
+        #box h2{font-size: 16px; text-align: center; background: #eee; height:35px; border-bottom: 1px solid #ccc; line-height: 35px;}
+        #box form{padding:20px 30px;}
+        #box p{margin: 15px 0;}
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h2>网站登录</h2>
+        <form action="">
+            <p>
+                <label for="">用户名:</label>
+                <input id="userName" type="text" name="userName">
+            </p>
+            <p>
+                <label for="">密　码:</label>
+                <input id="userPass" type="password" name="userPass">
+            </p>
+            <p>
+                <input id="change" type="checkbox">记住用户名
+                <a href="#">忘记密码?</a>
+            </p>
+        </form>
+
+    </div>
+</body>
+</html>
+<script src="js/cookie.js"></script>
+<script>
+
+    var oChange = document.getElementById("change");
+    var oName = document.getElementById("userName");
+    var oPass = document.getElementById("userPass");
+    
+    oChange.onclick = function () {
+         //设置cookie,存储用户名和密码
+        if(oChange.checked){
+            setCookie("userName",oName.value);
+            setCookie("userPass",oPass.value);
+        }else{
+            deleteCookie("userName");
+            deleteCookie("userPass");
+        }
+
+    };
+
+    if(getCookie("userName") && getCookie("userPass")){
+        oName.value = getCookie("userName");
+        oPass.value = getCookie("userPass");
+        oChange.checked = true;
+    }
+
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #ccc;
+        }
+        form{
+            width: 300px;
+            border: 1px solid #909090;
+            margin: 100px auto;
+            padding: 50px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 25px;
+            background-color: #eee;
+        }
+        form label{
+            display: block;
+        }
+        form input{
+            height: 30px;
+            vertical-align: middle;
+        }
+        form #sub{
+            height: 30px;
+            line-height: 30px;
+            width: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <label for="">用户名:<input type="text" name="user" id="userName" value=""></label>
+    <label for="">密　码:<input type="password" name="pwd" id="userPwd" value=""></label>
+    <input type="submit" id="sub" value="登录">
+</form>
+</body>
+</html>
+<!--引入封装好的cookie-->
+<script src="js/cookie.js"></script>
+<script>
+    var oUserName = document.getElementById("userName");
+    var oSub = document.getElementById("sub");
+    var oForm = document.getElementsByTagName("form")[0];
+    
+    oForm.onsubmit = function () {
+        var userNameValue = oUserName.value;
+        //设置cookie
+        setCookie("user",userNameValue,setCookieDate(3));
+    };
+    window.onload = function () {
+        oUserName.value = getCookie("user");
+    }
+</script>

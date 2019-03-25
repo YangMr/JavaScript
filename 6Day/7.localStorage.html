@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    //使用localstorage进行存储数据
+    localStorage.setItem("maxName","jack");
+    localStorage.setItem("maxName1","jack1");
+    localStorage.setItem("maxName2","jack2");
+    localStorage.setItem("maxName3","jack3");
+    localStorage.setItem("maxName","rose")
+    localStorage.removeItem("maxName3")
+
+    // localStorage.clear()
+
+    console.log(localStorage.getItem("maxName"))
+    console.log(localStorage.getItem("maxName1"))
+    console.log(localStorage.getItem("maxName2"))
+    console.log(localStorage.getItem("maxName3"))
+
+    console.log("key:" + localStorage.key("1"))
+
+</script>

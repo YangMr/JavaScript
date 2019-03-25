@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="border: 2px dashed #ccc;width:320px;text-align:center;">
+    <label for="sitename">网站名(key)：</label>
+    <input type="text" id="sitename" name="sitename" class="text"/>
+    <br/>
+    <label for="siteurl">网 址(value)：</label>
+    <input type="text" id="siteurl"  name="siteurl"/>
+    <br/>
+    <input type="button" onclick="save()" value="新增记录"/>
+    <hr/>
+    <label for="search_site">输入网站名：</label>
+    <input type="text" id="search_site" name="search_site"/>
+    <input type="button" onclick="find()" value="查找网站"/>
+    <p id="find_result"><br/></p>
+</div>
+</body>
+</html>
+<script>
+    var oName= document.getElementById("sitename");
+    var oUrl = document.getElementById("siteurl");
+    var oSearch = document.getElementById("search_site");
+    var re = document.getElementById("find_result");
+    function save() {
+        var nameValue = oName.value;
+        var urlValue = oUrl.value;
+        localStorage.setItem(encodeURIComponent(nameValue),urlValue);
+        alert("保存成功");
+    }
+
+
+    function find() {
+        var searchValue = oSearch.value;
+        var siteValue = localStorage.getItem(encodeURIComponent(searchValue));
+        console.log(siteValue)
+        re.innerHTML ="search_site 的网址是：<a href='"+ siteValue +"'>"+siteValue+"</a>";
+    }
+</script>

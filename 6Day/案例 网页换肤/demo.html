@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>换肤</title>
+    <style type="text/css">
+        body{font-size:12px}
+        *{margin:0;padding:0;}
+        ul,li{list-style:none}
+        .login_skin{height:25px;background:#E8E8E8;border:1px solid #e9e8e5;width:215px;color:#333;line-height:25px;margin:25px 0px 25px 10px;padding-left:15px;}
+        .login_skin li{float:left}
+        .login_skin .bor{border-right:1px solid #e9e8e5; padding-right:7px; margin-right:10px}
+        .login_skin li span{margin:7px 4px 0px 0px;cursor:pointer;display:block}
+        .login_skin li span em{display:block;height:9px;width:10px;overflow:hidden;text-indent:-9999px}
+        .login_skin a{color:#333;text-decoration:none; margin-right:5px}
+        .login_skin li .on{ border:1px solid #333;cursor:default}
+        h2{font-size:12px; padding:8px 0px 10px 15px}
+        #sk_blue{background:#2086b3;}
+        #sk_or{background:#e64c13}
+        #sk_byu{background:#b7a37a;}
+        #warpper{overflow:hidden;height:1%}
+        .contentl{margin-right:-244px;float:left;width:100%}
+        .contentr{width:230px;float:right;}
+        .main{margin-right:254px;margin-left:10px;height:300px}
+        .footer{height:30px;margin:30px 10px 0px 10px}
+        .blue .content{background:#2086b3;color:#fff;}
+        .blue .bb{border:2px solid #2086b3;}
+        .blue .footer{background:#2086b3;}
+        .or .content{background:red;color:#fff;}
+        .or .bb{border:2px solid red;}
+        .or .footer{background:red;}
+        .byu .content{background:#b7a37a;color:#f00}
+        .byu .bb{border:2px solid #b7a37a;}
+        .byu .footer{background:#b7a37a;}
+    </style>
+    <script src="js/cookie.js"></script>
+    <script type="text/javascript">
+        function setOnloadEvent(func){
+            var oldonload = window.onload;
+            if(typeof window.onload != "function"){
+                window.onload = func;
+            }
+            else{
+                window.onload = function(){
+                    oldonload();
+                    func();
+                }
+            }
+        }
+
+        function skin(){
+            if(!document.getElementsByTagName) return false;
+            if(!document.getElementById("skin")) return false;
+            //初始化一个变量，用来保存初始默认颜色
+            var skin_id="blue";
+            //判断能否获取cookie的id名，如果能获取到，就把获取到的id名的值赋给初始化变量
+            if(getCookie("id")!=null){
+                skin_id=getCookie("id");
+            }
+            //span元素
+            var span_id=skin_id+"_sp";
+            //初始化一个变量span_on,默认是第一个span
+            var span_on=document.getElementById(span_id);
+            //给body添加了一个类名 类名  blue
+            document.body.className=skin_id;
+            //给第一个span元素添加名为on的类名
+            span_on.className="on";
+            //获取header下面的第一个div元素
+            var skinType=document.getElementById("skin");
+            //获取header下面的第一个div元素里面所有的em元素
+            var skin_nub=skinType.getElementsByTagName("em");
+            //把所有em元素遍历一遍
+            for(var i=0; i<skin_nub.length;i++){
+                //给所有的em元素添加clcik事件
+                skin_nub[i].onclick=function(){
+                    //得到当前正在点击的元素的id名 sk_blue sk_or sk_byu
+                    var em_id=this.getAttribute("id");
+                    //将获取到id名分割成数组，将分割的颜色名赋给skin_id这个变量
+                    var skin_id=em_id.split("_")[1];  //sk_blue  sk,blue
+                    //获取所有的span
+                    var spanList=document.getElementsByTagName("span");
+                    for(var j=0;j<spanList.length;j++){
+                        //当点击的时候，清空所有span的类名
+                        spanList[j].className="";
+                        //如果能找到 blue or byu 这个三个名称之一，就添加on类名
+                        if(spanList[j].getAttribute("id").indexOf(skin_id)!=-1)
+                        {
+                            spanList[j].className="on";
+                        }
+                    }
+                    //把当前正咋点击的类名赋给body
+                    document.body.className=skin_id;
+                    //设置cookie
+                    setCookie("id",skin_id,1);
+                }
+            }
+        }
+        setOnloadEvent(skin);
+    </script>
+</head>
+<body>
+<div id="header">
+    <div class="login_skin" id="skin">
+        <ul>
+            <li>选择页面风格：</li>
+            <li><span id="blue_sp"><em id="sk_blue">ee</em></span></li>
+            <li><span id="or_sp"><em id="sk_or">ere</em></span></li>
+            <li><span id="byu_sp"><em id="sk_byu">ere</em></span></li>
+        </ul>
+    </div>
+</div>
+<div id="warpper">
+    <div class="contentl" >
+        <div class="main bb"><h2>换肤测试</h2></div>
+    </div>
+    <div class="contentr bb" ><h2>换肤测试</h2></div>
+</div>
+<div class="footer"></div>
+</body>
+</html>

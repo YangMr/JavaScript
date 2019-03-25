@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 400px;
+            height: 300px;
+            border: #000 1px solid;
+            margin: 100px auto;
+        }
+
+        #box a {
+            display: block;
+            float:left;
+            width: 100px;
+            height: 39px;
+            text-align:center;
+            line-height: 39px;
+            background:#ccc;
+            color: #333;
+            text-decoration:none;
+            border-bottom: #333 1px solid;
+        }
+
+        #box a.active{
+            background: #c00;
+            color: #fff;
+            width: 98px;
+            border-left: #333 1px solid;
+            border-right: #333 1px solid;
+        }
+
+        #box div{
+            width: 400px;
+            height: 260px;
+            text-align:center;
+            line-height:260px;
+            font-size:50px;
+            display:none;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="box">
+    <a href="javascript:;" class="active">体育</a>
+    <a href="javascript:;">音乐</a>
+    <a href="javascript:;">视频</a>
+    <a href="javascript:;">电影</a>
+    <div style="display: block;">体育</div>
+    <div>音乐</div>
+    <div>视频</div>
+    <div>电影</div>
+</div>
+
+
+</body>
+</html>
+<script src="js/cookie.js"></script>
+<script>
+
+    //获取元素
+    var oBox = document.getElementById("box");
+    var aA = oBox.getElementsByTagName("a");
+    var aDiv = oBox.getElementsByTagName("div");
+    var currentIndex = 0;
+    function tab(index) {
+        for(var i=0;i<aA.length;i++){
+            aA[i].className = "";
+            aDiv[i].style.display = "none";
+        }
+        aA[index].className = "active";
+        aDiv[index].style.display = "block";
+    }
+
+    for(var i=0;i<aA.length;i++){
+        aA[i].index = i;
+        aA[i].onclick = function () {
+            tab(this.index);
+            setCookie("tabIndex",this.index,setCookieDate(7));
+        }
+    };
+
+    currentIndex = getCookie("tabIndex");
+    if(currentIndex){
+      tab(currentIndex)
+    }
+
+</script>

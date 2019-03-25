@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+
+
+    //创建cookie
+    // document.cookie = "userName=张三";
+    //设置cookie的过期时间
+    var path = "http://localhost:63342/%E5%89%8D%E7%AB%AF%E8%AF%BE%E7%A8%8B/JavaScript/6Day/2.%E5%88%9B%E5%BB%BAcookie.html?_ijt=bk2141d3if3ea1rgb7qsjur28d";
+    var date = new Date();
+    date.setDate(date.getDate() + 1);
+    // console.log(date.getDate())
+    document.cookie = "userName=" + encodeURIComponent("张三")+";expires=" + date + ";path=" + path;
+</script>
