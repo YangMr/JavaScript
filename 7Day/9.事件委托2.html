@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul">
+    <li>aaaaaaaa</li>
+    <li>bbbbbbbb</li>
+    <li>cccccccc</li>
+
+</ul>
+</body>
+</html>
+<script>
+
+    var oUl = document.getElementById("ul");
+    var aLi = oUl.getElementsByTagName("li");
+
+    function getTarget(evt){
+        var e = evt || window.event;
+        return e.target || e.srcElement;
+    }
+
+   oUl.onmouseover = function (event) {
+       var tElement = getTarget(event);
+       if(tElement.nodeName.toLowerCase() == "li"){
+           tElement.style.background = "red";
+       }
+   }
+
+   oUl.onmouseout = function () {
+       var tElement = getTarget(event);
+       if(tElement.nodeName.toLowerCase() == "li"){
+           tElement.style.background = "";
+       }
+   }
+
+</script>

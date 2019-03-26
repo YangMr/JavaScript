@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .box1{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+        }
+        .box2{
+            width:200px;
+            height: 200px;
+            background: blue;
+        }
+        .box3{
+            width: 400px;
+            height: 400px;
+            background: red;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box3" id="div3">
+        <div class="box2" id="div2">
+            <div class="box1" id="div1"></div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var oDiv3 = document.getElementById("div3");
+    var oDiv2 = document.getElementById("div2");
+    var oDiv1 = document.getElementById("div1");
+
+    oDiv3.onclick = function (event) {
+        var e = event || window.event;
+        alert("我是div3");
+        this.style.background = "yellow";
+
+        //ie低版本浏览器的事件冒泡阻止
+        e.cancelable = true;
+    };
+    oDiv2.onclick = function (event) {
+        var e = event || window.event;
+        alert("我是div2");
+        this.style.background = "red";
+        //ie低版本浏览器的事件冒泡阻止
+        e.cancelable = true;
+
+    };
+    oDiv1.onclick = function (event) {
+        var e = event || window.event;
+        alert("我是div1");
+        this.style.background = "blue";
+
+        //ie低版本浏览器的事件冒泡阻止
+        e.cancelable = true;
+    }
+
+</script>

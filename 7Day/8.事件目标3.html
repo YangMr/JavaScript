@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{list-style-type: none;}
+        li{width: 120px; cursor: pointer; text-align: center; line-height: 120px; height: 120px; border: 1px solid #ccc; float: left; margin: 20px;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+    </ul>
+</body>
+</html>
+<script>
+
+    var aLi = document.getElementsByTagName("li");
+
+    function getTarget(evt) {
+        var e = evt || window.event;
+        return e.target || e.srcElement;
+    }
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onclick = function (event) {
+            var e = event || window.event;
+            alert(getTarget(event))
+        }
+    }
+
+</script>

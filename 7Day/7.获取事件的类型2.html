@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .box{width: 200px; height: 200px; border:1px solid #ccc; margin: 100px auto;}
+
+    </style>
+</head>
+<body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+</body>
+</html>
+<script>
+    var oDiv = document.getElementsByTagName("div");
+
+   oDiv[0].onclick = function (event) {
+       var e = event || window.event;
+       alert(e.bubbles);
+        this.style.background = "red"
+    }
+    oDiv[0].onmouseover = function (event) {
+        var e = event || window.event;
+       alert(e.type);
+        this.style.background = "yellow"
+    };
+
+</script>

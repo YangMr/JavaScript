@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id="list">
+        <li></li>
+    </ul>
+</body>
+</html>
+<script>
+
+    var oList = document.getElementById("list");
+    var oli = oList.getElementsByTagName("li")[0];
+    var num=1;
+    var str = "";
+    for(var i=0;i<10000;i++){
+      str += num+1 + "<br/>";
+    };
+    oli.innerHTML = str;
+
+</script>

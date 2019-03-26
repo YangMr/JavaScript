@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="https://www.baidu.com">百度</a>
+</body>
+</html>
+<script>
+
+    function stopPrev(evt) {
+        var e = evt || window.event;
+        window.event ? e.returnValue = false : e.preventDefault();
+    }
+
+    var a = document.getElementsByTagName("a")[0];
+    a.onclick = function (evt) {
+        alert("hello")
+        stopPrev(evt);
+    }
+
+</script>

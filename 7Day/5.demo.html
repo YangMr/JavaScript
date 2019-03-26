@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        html,body,h2,div,ul,li{margin: 0;padding: 0;}
+        #menu{width: 320px; border:1px solid #ccc; margin: 100px auto;}
+        #menu h2{font-size: 16px; cursor: pointer; text-align: center; line-height: 33px; height: 33px; border-bottom: 1px solid #ccc;}
+        #menu ul{ display: none; list-style-type: none; padding:0 20px;}
+        #menu ul li{ cursor: pointer; border-bottom: 1px dashed #ccc; padding: 10px 0;}
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <h2>你最喜欢玩的游戏?</h2>
+        <ul>
+            <li>英雄联盟</li>
+            <li>王者荣耀</li>
+            <li>绝地求生</li>
+            <li>刺激战场</li>
+            <li>4399小游戏</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+
+    var oH2 = document.getElementsByTagName("h2")[0];
+    var oUl = document.getElementsByTagName("ul")[0];
+    var aLi = document.getElementsByTagName("li");
+    //获取非行间样式
+    function getStyle(element,attr){
+        if(window.getComputedStyle){
+            return window.getComputedStyle(element,false)[attr];
+        }else{
+            return element.currentStyle[attr];
+        }
+    }
+    //阻止事件冒泡
+    function stopPro(evt){
+        var e = evt || window.event;
+        window.event ? e.cancelBubble = true : e.stopPropagation();
+    }
+
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onclick = function () {
+           oH2.innerHTML = this.innerHTML;
+        }
+    }
+
+    oH2.onclick = function (event) {
+        if(getStyle(oUl,"display") == "none"){
+            oUl.style.display = "block";
+        }else{
+            oUl.style.display = "none";
+        }
+        stopPro(event);
+    }
+
+    document.onclick = function (event) {
+        oUl.style.display = "none";
+        stopPro(event);
+    }
+
+</script>
