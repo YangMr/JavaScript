@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width:120px; height: 120px; background: red; position: absolute; left: 0; top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+
+    var oBox = document.getElementById("box");
+
+    //鼠标按下
+    oBox.onmousedown = function (event) {
+        var e = event || window.event;
+        //点击的坐标距离盒子本身的距离
+        var disX = e.clientX - oBox.offsetLeft;
+        var disY = e.clientY - oBox.offsetTop;
+        document.onmousemove = function (event) {
+            var e = event || window.event;
+            var l = e.clientX - disX;
+            var t = e.clientY - disY;
+            oBox.style.left = l + "px";
+            oBox.style.top = t + "px";
+        }
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    }
+
+
+
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width:120px; height: 120px; background: red; position: absolute; left: 0; top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    var oBox = document.getElementById("box");
+    document.onclick = function (evt) {
+        var e = evt || window.event;
+        oBox.style.left = e.clientX + "px";
+        oBox.style.top = e.clientY + "px";
+
+        // console.log("可视区X轴坐标:" + e.clientX + "可视区X轴坐标:" + e.clientY);
+        // console.log("屏幕区X轴坐标:" + e.screenX + "屏幕区Y轴坐标:" + e.screenY);
+    }
+
+</script>

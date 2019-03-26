@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{width: 200px; padding:30px; border:10px solid #ccc; height: 200px; background: red; margin: 100px auto;}
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+
+    function getStyle(element,attr) {
+        if(window.getComputedStyle){
+            return window.getComputedStyle(element,false)[attr];
+        }else{
+            return element.currentStyle[attr];
+        }
+    }
+
+    var oBox = document.getElementById("box");
+    alert(getStyle(oBox,"width"))
+    alert(getStyle(oBox,"height"))
+
+</script>
