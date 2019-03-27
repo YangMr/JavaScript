@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,div,ul,li,a,img,button,h3{margin: 0; padding: 0;}
+        #btn{width: 128px; height:33px; display: block; outline: none; margin: 20px auto 0; cursor: pointer; border:1px solid #eee; background: #ccc;}
+        #menu{ display: none; width: 126px; list-style-type: none; border:1px solid #ccc;margin: 0 auto;}
+        #menu li{height:30px; line-height: 30px; text-align: center;}
+        #menu li:hover{background: purple;color:#fff; cursor: pointer;}
+        #skin{ display: none; width: 580px; height:320px; border:1px solid #ccc; margin: auto; position: absolute; left:0; top:0; bottom:0; right:0;}
+        #skin h3{height:33px; border-bottom: 1px solid #ccc; line-height: 33px; font-size: 16px; text-align: center;}
+        #skin img{float: right; position: relative; top: 11px; right:15px; cursor: pointer;}
+    </style>
+</head>
+<body>
+    <button id="btn">个人中心</button>
+    <ul id="menu">
+        <li>发文</li>
+        <li>换肤</li>
+        <li>帮助</li>
+        <li>退出</li>
+    </ul>
+    <div id="skin">
+        <h3>更换皮肤 <img src="img/close.png" alt=""></h3>
+
+    </div>
+</body>
+</html>
+<script>
+
+    var oBtn = document.getElementById("btn");
+    var oMenu = document.getElementById("menu");
+
+    oBtn.onmouseover = oMenu.onmouseover  = function () {
+        oMenu.style.display = "block";
+    };
+    oBtn.onmouseout = oMenu.onmouseout  = function () {
+        oMenu.style.display = "none";
+    };
+
+</script>

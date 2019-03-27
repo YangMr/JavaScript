@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,div,ul,li,a,img,button,h3{margin: 0; padding: 0;}
+        /*body{ background:rgb(235, 222, 190) url("img/bg6.jpg") repeat-x ;}*/
+        #btn{width: 128px; height:33px; display: block; outline: none; margin: 20px auto 0; cursor: pointer; border:1px solid #eee; background: #ccc;}
+        #menu{ background: #fff; display: none; width: 126px; list-style-type: none; border:1px solid #ccc;margin: 0 auto;}
+        #menu li{height:30px; line-height: 30px; text-align: center;}
+        #menu li:hover{background: purple;color:#fff; cursor: pointer;}
+        #skin{display: none;background: #fff;  width: 660px; height:320px; border:1px solid #ccc; margin: auto; position: absolute; left:0; top:0; bottom:0; right:0;}
+        #skin h3{ background: url("img/login_header.png"); height:33px; border-bottom: 1px solid #ccc; line-height: 33px; font-size: 16px; text-align: center;}
+        #skin h3 img{float: right; position: relative; top: 11px; right:15px; cursor: pointer;}
+        #skin ul{ list-style-type: none; overflow: hidden; padding: 10px 0 0 20px;}
+        #skin ul li{ cursor: pointer; width: 200px;height: 120px; margin: 10px 10px 0 0; background: red; float: left;}
+    </style>
+</head>
+<body>
+    <button id="btn">个人中心</button>
+    <ul id="menu">
+        <li>发文</li>
+        <li id="toggleSkin">换肤</li>
+        <li>帮助</li>
+        <li>退出</li>
+    </ul>
+    <div id="skin">
+        <h3>更换皮肤 <img id="close" src="img/close.png" alt=""></h3>
+        <ul>
+            <li><img src="img/small_bg1.png" alt=""></li>
+            <li><img src="img/small_bg2.png" alt=""></li>
+            <li><img src="img/small_bg3.png" alt=""></li>
+            <li><img src="img/small_bg4.png" alt=""></li>
+            <li><img src="img/small_bg5.png" alt=""></li>
+            <li><img src="img/small_bg6.png" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="js/cookie.js"></script>
+<script>
+
+    var oBtn = document.getElementById("btn");
+    var oMenu = document.getElementById("menu");
+    var tSkin = document.getElementById("toggleSkin");
+    var oSkin = document.getElementById("skin");
+    var oClose = document.getElementById("close");
+    var imgLi = oSkin.getElementsByTagName("li");
+
+    var bgArr = ["img/bg1.jpg","img/bg2.jpg","img/bg3.jpg","img/bg4.jpg","img/bg5.jpg","img/bg6.jpg"]
+    var bgColor = ["rgb(231, 233, 232)","rgb(236, 240, 252)","rgb(226, 226, 226)","rgb(255, 255, 255)","rgb(243, 243, 243)","rgb(235, 222, 190)"]
+    for(var i=0;i<imgLi.length;i++){
+        imgLi[i].index = i;
+        imgLi[i].onclick = function (){
+            document.body.style.background = bgColor[this.index]+ "url('"+ bgArr[this.index] +"') repeat-x";
+            //设置cookie
+            setCookie("bigBg",bgArr[this.index],setCookieDate(7));
+            setCookie("bigColor",bgColor[this.index],setCookieDate(7));
+        }
+    }
+    console.log(getCookie("bigBg"),getCookie("bigColor"))
+    if(getCookie("bigBg") && getCookie("bigColor")){
+        document.body.style.background =  getCookie("bigColor")+ "url('"+ getCookie("bigBg") +"') repeat-x";
+    }
+
+    tSkin.onclick = function(){
+        oSkin.style.display = "block";
+    };
+    oClose.onclick = function(){
+        oSkin.style.display = "none";
+    }
+
+
+    oBtn.onmouseover = oMenu.onmouseover  = function () {
+        oMenu.style.display = "block";
+    };
+    oBtn.onmouseout = oMenu.onmouseout  = function () {
+        oMenu.style.display = "none";
+    };
+
+</script>

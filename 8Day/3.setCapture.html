@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn01">按钮1</button>
+<button id="btn02">按钮2</button>
+</body>
+</html>
+<script>
+
+    //为两个按钮绑定单击响应函数
+    var btn01 = document.getElementById("btn01");
+    var btn02 = document.getElementById("btn02");
+    btn01.onclick = function(){
+        alert(1);
+    }
+
+    btn02.onclick = function(){
+        alert(2);
+    }
+    btn01.setCapture();
+
+</script>
