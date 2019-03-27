@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>haorooms博客-404页面找不到啊！</title>
+<style>
+.text404{text-align: left;width: 420px;height: 290px;display: block;background: url('/theme/assets/images/404.png') no-repeat left top;margin: 0 auto;padding: 80px 0 0 480px;font-size: 17px;}
+.text404 h2 {clear: both;display: block;float: none;margin: 0 0 15px;font-size: 50px; line-height: 150%;}
+.text404  a {margin-right: 6px;padding: 6px 10px;font-size: 21px;text-decoration: none;color:#216ab3;}
+.text404  a:hover{color:#518ce6;}
+.text404 .pages {margin: 50px 0 0;}
+body{font-size: 14px;font-family: Cabin, Calibri, sans-serif;text-align: center;color: #30384c;background: url('/theme/assets/images/bg404.jpg') no-repeat center top;}
+html {background: #fff url('/theme/assets/images/main2.jpg') repeat-x  0 0;}
+</style>
+  <div class="cartlist" style="overflow: hidden;">
+      <div class="text404">
+            <h2>亲，你迷路了...</h2>
+            页面找不到啊亲！一定是你打开的方式不对！
+            <br/> 
+            <div class="pages">
+                    <span class="sec-btn">
+                            <a href="/">« 回首页</a> 
+                    </span>
+                    <a href="javascript:history.go(-1);">返回上一页 »</a>
+            </div>
+
+     </div>
+
+  </div>
+</html>

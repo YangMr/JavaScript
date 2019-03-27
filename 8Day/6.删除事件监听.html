@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn1">Clicks</button>
+    <button id="btn2">Clicks</button>
+    <button id="btn3">Clicks</button>
+
+    <button id="rm">REMOVE</button>
+</body>
+</html>
+<script>
+
+    var oBtn1 = document.getElementById("btn1");
+    var oBtn2 = document.getElementById("btn2");
+    var oBtn3 = document.getElementById("btn3");
+    var oR = document.getElementById("rm");
+    function fn1() {
+        alert("btn1")
+    }
+    function fn2() {
+        alert("btn2")
+    }
+    function fn3() {
+        alert("btn3")
+    }
+    oBtn1.attachEvent("onclick",fn1)
+    oBtn2.attachEvent("onclick",fn2)
+    oBtn3.attachEvent("onclick",fn3)
+
+    oR.onclick = function () {
+        oBtn2.detachEvent("onclick",fn2)
+    }
+</script>

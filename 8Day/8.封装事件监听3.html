@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{width: 150px; height: 150px; border:1px solid #ccc; margin: 20px auto;}
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+<button id="rm">REMOVE</button>
+</body>
+</html>
+<script>
+
+    var oBox = document.getElementById("box");
+    var rm = document.getElementById("rm");
+    function addEvent(obj,type,fn) {
+        if(obj.addEventListener){
+            obj.addEventListener(type,fn);
+        }else{
+            obj.attachEvent("on" +type,fn)
+        }
+    }
+
+    function removeEvent(obj,type,fn){
+        if(obj.removeEventListener){
+            obj.removeEventListener(type,fn);
+        }else{
+            obj.detachEvent("on" +type,fn);
+        }
+    }
+    function fn1() {
+        oBox.style.background = "yellow"
+    }
+    function fn2() {
+        oBox.style.width = "400px"
+    }
+    function fn3() {
+        oBox.style.height = "400px"
+    }
+    addEvent(oBox,"click",fn1)
+    addEvent(oBox,"click",fn2)
+    addEvent(oBox,"click",fn3)
+    addEvent(rm,"click",function () {
+        removeEvent(oBox,"click",fn2)
+    })
+    /*/!*oBox.addEventListener("click",function () {
+        this.style.background = "red";
+    })*!/
+
+    oBox.attachEvent("onclick",function () {
+
+        oBox.style.background = "red"
+    })*/
+</script>

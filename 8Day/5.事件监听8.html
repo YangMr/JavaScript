@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">Remove</button>
+<button id="test">Clicks</button>
+</body>
+</html>
+<script>
+    var oBtn = document.getElementById("btn");
+    var oTest= document.getElementById("test");
+    window.attachEvent("onload",fn1)
+    function fn1() {
+        alert("1")
+    }
+    window.attachEvent("onload",fn2)
+    function fn2() {
+        alert("2")
+    }
+    oTest.onclick = function(){
+        window.attachEvent("onload",fn1)
+    }
+
+
+    oBtn.onclick = function () {
+        window.detachEvent("onload",fn1)
+    }
+
+  /*  window.addEventListener("load",function () {
+        alert("1")
+    },false)
+    window.addEventListener("load",function () {
+        alert("2")
+    },false);*/
+
+
+    /*window.onload = function () {
+        alert("111")
+    }
+    window.onload = function () {
+        alert("222")
+    }*/
+
+</script>

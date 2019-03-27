@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0071)https://www.haorooms.com/uploads/example/jscode_shizhan/lesson1/02.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>换肤</title>
+<style type="text/css">
+body{font-size:12px}
+*{margin:0;padding:0;}
+ul,li{list-style:none}
+.login_skin{height:25px;background:#E8E8E8;border:1px solid #e9e8e5;width:215px;color:#333;line-height:25px;margin:25px 0px 25px 10px;padding-left:15px;}
+.login_skin li{float:left}
+.login_skin .bor{border-right:1px solid #e9e8e5; padding-right:7px; margin-right:10px}
+.login_skin li span{margin:7px 4px 0px 0px;cursor:pointer;display:block}
+.login_skin li span em{display:block;height:9px;width:10px;overflow:hidden;text-indent:-9999px}
+.login_skin a{color:#333;text-decoration:none; margin-right:5px}
+.login_skin li .on{ border:1px solid #333;cursor:default}
+h2{font-size:12px; padding:8px 0px 10px 15px}
+#sk_blue{background:#2086b3;}
+#sk_or{background:#e64c13}
+#sk_byu{background:#b7a37a;}
+#warpper{overflow:hidden;height:1%}
+.contentl{margin-right:-244px;float:left;width:100%}
+.contentr{width:230px;float:right;}
+.main{margin-right:254px;margin-left:10px;height:300px}
+.footer{height:30px;margin:30px 10px 0px 10px}
+.blue .content{background:#2086b3;color:#fff;}
+.blue .bb{border:2px solid #2086b3;}
+.blue .footer{background:#2086b3;}
+.or .content{background:red;color:#fff;}
+.or .bb{border:2px solid red;}
+.or .footer{background:red;}
+.byu .content{background:#b7a37a;color:#f00}
+.byu .bb{border:2px solid #b7a37a;}
+.byu .footer{background:#b7a37a;}
+</style>
+<script type="text/javascript">
+function setOnloadEvent(func){
+	 var oldonload = window.onload;
+	 if(typeof window.onload != "function"){
+		  window.onload = func;
+	 }
+	 else{
+	    window.onload = function(){
+	    	 oldonload();
+	    	 func();
+	    }	
+	 }
+}
+// --- 设置cookie
+function setCookie(name,value,days) {
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = "; expires="+date.toGMTString();
+  }
+  else expires = "";
+  document.cookie = name+"="+value+expires+"; path=/";
+}
+//--- 获取cookie
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+function skin(){
+ if(!document.getElementsByTagName) return false;
+ if(!document.getElementById("skin")) return false;
+ var skin_id="blue";
+ if(getCookie("id")!=null){
+      skin_id=getCookie("id");
+   }
+ var span_id=skin_id+"_sp";
+ var span_on=document.getElementById(span_id);
+ document.body.className=skin_id;
+ span_on.className="on";
+ var skinType=document.getElementById("skin");
+ var skin_nub=skinType.getElementsByTagName("em");
+ for(var i=0; i<skin_nub.length;i++){
+    skin_nub[i].onclick=function(){
+    var em_id=this.getAttribute("id");
+    var skin_id=em_id.split("_")[1];
+    var spanList=document.getElementsByTagName("span");
+    for(var j=0;j<spanList.length;j++){
+       spanList[j].className="";
+       if(spanList[j].getAttribute("id").indexOf(skin_id)!=-1)
+       {
+       spanList[j].className="on";
+       }
+    }
+     document.body.className=skin_id;
+    setCookie("id",skin_id,1);
+   }
+  }
+}
+setOnloadEvent(skin);  
+</script>
+</head>
+<body class="blue">
+<div id="header">
+<div class="login_skin" id="skin">
+  <ul>
+	<li>选择页面风格：</li>
+	<li><span id="blue_sp" class="on"><em id="sk_blue">ee</em></span></li>
+	<li><span id="or_sp"><em id="sk_or">ere</em></span></li>
+	<li><span id="byu_sp"><em id="sk_byu">ere</em></span></li>
+  </ul>
+</div>
+</div>
+<div id="warpper">
+  <div class="contentl">
+    <div class="main bb"><h2>换肤测试</h2></div>
+  </div>
+  <div class="contentr bb"><h2>换肤测试</h2></div>
+</div>
+<div class="footer"></div>
+
+</body></html>

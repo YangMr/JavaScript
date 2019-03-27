@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{width: 150px; height: 150px; border:1px solid #ccc; margin: 20px auto;}
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+
+    var oBox = document.getElementById("box");
+
+    /*oBox.addEventListener("click",function () {
+        this.style.background = "red";
+    })*/
+
+    oBox.attachEvent("onclick",function () {
+
+        oBox.style.background = "red"
+    })
+</script>
