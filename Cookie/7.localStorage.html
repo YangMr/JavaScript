@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <button id="btn">remove</button>
+</body>
+</html>
+<script>
+
+    localStorage.setItem("age",20);
+    localStorage.setItem("age1",20);
+    localStorage.setItem("age2",20);
+    localStorage.setItem("age",22);
+    var aLi = document.getElementsByTagName("li");
+    aLi[0].innerHTML = localStorage.getItem("age");
+    aLi[1].innerHTML = localStorage.getItem("age1");
+    aLi[2].innerHTML = localStorage.getItem("age2");
+
+    btn.onclick = function () {
+        localStorage.removeItem("age1")
+    }
+</script>

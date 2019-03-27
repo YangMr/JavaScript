@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    function setCookieDate(day) {
+        var oDate = new Date();
+        oDate.setDate(oDate.getDate() + day);
+        return oDate;
+    }
+
+    function setCookie(name,value,expires,path,domain,secure) {
+        var cookieText = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+        if(expires instanceof Date){
+            cookieText += ";expires = " + expires;
+        }
+        if(path){
+            cookieText += ";path=" + path;
+        }
+        if(domain){
+            cookieText += ";domain=" + domain;
+        }
+        if(secure){
+            cookieText += ";secure";
+        }
+        document.cookie = cookieText;
+    }
+    setCookie("userName","rose",setCookieDate(4));
+    setCookie("userName1","李四",setCookieDate(1))
+
+</script>

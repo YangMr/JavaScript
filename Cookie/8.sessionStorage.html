@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <button id="btn">remove</button>
+</body>
+</html>
+<script>
+
+    sessionStorage.setItem("age",20);
+    sessionStorage.setItem("age1",20);
+    sessionStorage.setItem("age2",20);
+
+    var aLi = document.getElementsByTagName("li");
+    aLi[0].innerHTML = sessionStorage.getItem("age");
+    aLi[1].innerHTML = sessionStorage.getItem("age1");
+    aLi[2].innerHTML =sessionStorage.getItem("age2");
+    btn.onclick = function () {
+        sessionStorage.removeItem("age1")
+    }
+</script>

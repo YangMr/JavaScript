@@ -39,12 +39,12 @@
     var oChange = document.getElementById("change");
     var oName = document.getElementById("userName");
     var oPass = document.getElementById("userPass");
-    
+
     oChange.onclick = function () {
          //设置cookie,存储用户名和密码
         if(oChange.checked){
-            setCookie("userName",oName.value);
-            setCookie("userPass",oPass.value);
+            setCookie("userName",oName.value,setCookieDate(3));
+            setCookie("userPass",oPass.value,setCookieDate(3));
         }else{
             deleteCookie("userName");
             deleteCookie("userPass");
