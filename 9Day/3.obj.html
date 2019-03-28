@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    var obj = {
+        user : "jack",
+        age : 200,
+        love : "唱歌"
+    }
+
+    function params(data) {
+        var arr = [];
+        for(var i in data){
+            arr.push(encodeURIComponent(i) + "=" + encodeURIComponent(data[i]));
+        }
+        return arr.join("&");
+    }
+    console.log(params(obj));
+
+</script>

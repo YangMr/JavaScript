@@ -1,4 +1,6 @@
 ﻿<?php
-    $a = $_GET["name"];
-    echo $a
+    $a = $_GET["user"];
+    $b = $_GET["age"];
+    echo $a;
+    echo $b
 ?>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html,body,div,p,span{margin: 0; padding: 0;}
+        html{font-size: 625%;}
+        body{font-size: .16rem;font-family:"Microsoft Yahei";}
+        #page{max-width: 6.4rem; min-width: 3.2rem; margin: 0 auto; height: 100%;}
+        #page .page-city{padding: 0 .15rem; font-size: .14rem; background: #fff; color: #666; height: .5rem; line-height: .5rem; border-bottom:1px solid #ccc;}
+        #page .page-city span{float: right;}
+    </style>
+</head>
+<body>
+    <div id="page">
+        <div class="page-city">
+            <p>当前定位城市: <span id="city"></span></p>
+        </div>
+    </div>
+</body>
+</html>
+<script src="js/ajax.js"></script>
+<script>
+    var oCity = document.getElementById("city");
+    ajax({
+        url : "https://elm.cangdu.org/v1/cities",
+        method : "get",
+        data : {
+            type : "guess"
+        },
+        success : function (response) {
+             var data = JSON.parse(response);
+             console.log(data.name);
+             if(data.name){
+                 oCity.innerHTML = data.name;
+             }else{
+                 oCity.innerHTML = "定位不准时,请在城市列表中选择";
+             }
+        },
+        async : true
+    })
+
+
+</script>

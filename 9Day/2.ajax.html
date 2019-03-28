@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    ajax({
+        method : "post",
+        url : "demo.php",
+        data : {
+            user : "jack",
+            age : 100
+        },
+        success : function (response) {
+            console.log(response);
+        },
+        async : true
+    })
+
+</script>

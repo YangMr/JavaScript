@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">Clicks</button>
+</body>
+</html>
+<script src="js/base.js"></script>
+<script>
+
+
+    //封装XMLHTTPREQUEST
+    function createXHR() {
+        if(typeof XMLHttpRequest !== "undefined" ){
+            return new XMLHttpRequest();
+        }else if(typeof ActiveXObject !== "undefined"){
+            var version = [
+                'MSXML2.XMLHttp.6.0',
+                'MSXML2.XMLHttp.3.0',
+                'MSXML2.XMLHttp'
+            ];
+            for(var i=0;i<version.length;i++){
+                try {
+                    return new ActiveXObject(version[i]);
+                }catch (e) {
+
+                }
+            }
+        }else{
+            throw new Error('您的浏览器不支持XHR对象！');
+        }
+    }
+
+    var oBtn = document.getElementById("btn");
+
+    addEvent(document,"click",function () {
+        //1.获取XMLHttpRequest
+        var xhr = createXHR();
+        //2.准备发送请求
+        xhr.open("post","post.php",true);
+        //模拟表单提交数据
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        //3.发送请求
+        xhr.send("name=jack&age=100");
+        //创建onreadystatechange事件的触发来接收响应的数据
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState == 4){
+                //4.根据状态码接收响应的数据
+                if(xhr.status == 200){
+                    alert(xhr.responseText)
+                }else{
+                    alert('数据返回失败！状态代码：' + xhr.status + '状态信息：' + xhr.statusText);
+                }
+            }
+        }
+
+    });
+
+    function addUrlParam(url,name,value) {
+        url += url.indexOf("?") == -1 ? "?" : "&";
+        url += encodeURIComponent(name) + "=" + encodeURIComponent(value);
+        return url;
+    }
+    console.log(addUrlParam("demo.php?rand"+Math.random(),"userName","jack"))
+
+</script>
