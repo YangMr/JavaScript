@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">Clicks</button>
+</body>
+</html>
+<script src="js/base.js"></script>
+<script>
+
+
+    //封装XMLHTTPREQUEST
+    function createXHR() {
+        if(typeof XMLHttpRequest !== "undefined" ){
+            return new XMLHttpRequest();
+        }else if(typeof ActiveXObject !== "undefined"){
+            var version = [
+                'MSXML2.XMLHttp.6.0',
+                'MSXML2.XMLHttp.3.0',
+                'MSXML2.XMLHttp'
+            ];
+            for(var i=0;i<version.length;i++){
+                try {
+                    return new ActiveXObject(version[i]);
+                }catch (e) {
+
+                }
+            }
+        }else{
+            throw new Error('您的浏览器不支持XHR对象！');
+        }
+    }
+
+    var oBtn = document.getElementById("btn");
+    addEvent(oBtn,"click",function () {
+        //获取XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+        //准备发送请求
+        xhr.open("get","https://elm.cangdu.org/v1/cities?type=group",true);
+
+        //发送请求
+        xhr.send(null);
+        //异步调用的时候会触发
+        xhr.onreadystatechange = function () {
+            //判断是否完全接收到响应的数据
+            if(xhr.readyState == 4){
+                //判断是否请求成功  == 200 表示成功
+                if(xhr.status == 200){
+                    //接受后台响应的文本
+                    console.log(xhr.responseText);
+                    // alert(xhr.getAllResponseHeaders())
+                }else{
+                    alert('数据返回失败！状态代码：' + xhr.status + '状态信息：'+xhr.statusText);
+                }
+            }
+        }
+
+
+    })
+
+
+</script>

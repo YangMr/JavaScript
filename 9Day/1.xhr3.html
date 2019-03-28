@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+
+    //封装XMLHTTPREQUEST
+    function createXHR() {
+        if(typeof XMLHttpRequest !== "undefined" ){
+            return new XMLHttpRequest();
+        }else if(typeof ActiveXObject !== "undefined"){
+            var version = [
+                'MSXML2.XMLHttp.6.0',
+                'MSXML2.XMLHttp.3.0',
+                'MSXML2.XMLHttp'
+            ];
+            for(var i=0;i<version.length;i++){
+                try {
+                    return new ActiveXObject(version[i]);
+                }catch (e) {
+
+                }
+            }
+        }else{
+            throw new Error('您的浏览器不支持XHR对象！');
+        }
+    }
+    //用一个变量来保存xmlhttprequest对象
+    var xhr = createXHR();
+    //打开-- 发送的方式  地址   同步还是异步
+    //准备发送请求
+    xhr.open("get","dem.php",false);
+    //发送请求
+    xhr.send(null);
+</script>
