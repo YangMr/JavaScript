@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度搜索框</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        input{
+            width: 400px;
+            height: 34px;
+        }
+        ul{
+            display: none;
+            width: 400px;
+            border: 1px solid #ccc;
+        }
+        li{
+            margin-left: 10px;
+            margin-top: 3px;
+        }
+        .wrapper{
+            margin: 100px;
+        }
+        a{
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <input type="text">
+    <ul>
+
+    </ul>
+</div>
+<script src="jquery.js"></script>
+<script>
+    function ds(data) {
+        console.log(data)
+    }
+
+    /*通过jsonp访问百度服务器，获取搜索联想词*/
+    var oInput = document.getElementsByTagName("input")[0];
+
+    oInput.oninput = function () {
+        var value = this.value;
+        var oScript = document.createElement("script");
+        //wd=关键字，doJson=执行函数名，这里要保证传的是函数名的字符串！！！
+        oScript.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+ value +"&cb=doJson&_=1544270132010";
+        //这里将插入以联想词数组为参数的名为doJson的js文件，马上执行
+        document.body.appendChild(oScript);
+        //执行完以后又马上移除掉
+        document.body.removeChild(oScript);
+    };
+
+    function doJson(data) {
+        var s = data.s;
+        $("ul").empty();
+        //当输入值过多时，s的联想词会匹配不到
+        if(s.length > 0){
+            s.forEach(function (ele,index) {
+                var a = $("<a></a>").attr("href","https://www.baidu.com/s?wd=" + ele);
+                a.text(ele);
+                $("<li></li>").append(a).appendTo($("ul"));
+            });
+            $("ul").css("display","block");
+        }else{
+            $("ul").css("display","none");
+        }
+    }
+</script>
+</body>
+</html>
