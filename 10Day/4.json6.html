@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var box = '[{"name" : "jack"},{"age" : 100},{"name" : "jack"}]'
+    // var box = "[{'name' : 'a', 'age' : 1, 'height' : 177},{'name' : 'b', 'age' : 2, 'height' : 188}]";
+    var obj = JSON.parse(box,function (key,value) {
+
+        if (key == 'name') {
+            return value + 1;
+        } else {
+            return value;
+        }
+    })
+    console.log(obj)
+
+
+
+
+</script>

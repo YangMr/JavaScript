@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">GET Data</button>
+</body>
+</html>
+<script src="js/ajax.js"></script>
+<script>
+    /*访问    控制   允许   源头
+    Access-Control-Allow-Origin "*"*/
+    var oBtn = document.getElementById("btn");
+    oBtn.onclick = function () {
+        ajax({
+            url : "http://localhost:8000/",
+            method : "post",
+            data : {
+                userName : "jack",
+                password : 1234567
+            },
+            success : function (response) {
+                console.log(response)
+            },
+            async : true
+        })
+    }
+
+</script>

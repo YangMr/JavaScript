@@ -1,0 +1,22 @@
+{
+  "register" : [
+    {
+      "name" : "jack",
+      "password" : 123456,
+      "love" : "唱歌",
+      "date" : "1990-01-18"
+    },
+    {
+      "name" : "rose",
+      "password" : 654321,
+      "love" : "跳舞",
+      "date" : "1990-01-18"
+    },
+    {
+      "name" : "nick",
+      "password" : 753951,
+      "love" : "打游戏",
+      "date" : "1990-01-18"
+    }
+  ]
+}

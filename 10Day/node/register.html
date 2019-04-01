@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #register{border:1px solid #ccc; width:350px; margin: 100px auto; text-align: center;}
+    </style>
+</head>
+<body>
+    <div id="register">
+        <h3>注册</h3>
+        <form>
+            <p>
+                <label for="">账号:</label>
+                <input type="text" id="name">
+            </p>
+            <p>
+                <label for="">密码:</label>
+                <input type="text" id="pass">
+            </p>
+            <p>
+                <input type="button" id="reg" value="注册">
+            </p>
+        </form>
+    </div>
+</body>
+</html>
+<script src="../js/ajax.js"></script>
+<script>
+    var oReg = document.getElementById("reg");
+    var oName = document.getElementById("name");
+    var oPass = document.getElementById("pass");
+
+    oReg.onclick = function () {
+        ajax({
+            url : "http://localhost:8020/",
+            method : "post",
+            data : {
+                name : oName.value,
+                pass : oPass.value
+            },
+            success : function (response) {
+                console.log(response);
+            },
+            async : true
+        })
+    }
+</script>

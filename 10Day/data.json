@@ -1,0 +1,46 @@
+{
+  "picture" : [
+    {
+      "_id": "5a322ef4fc84c2b8efaa8335",
+      "title": "人气榜",
+      "cover": "/ranking-cover/142319144267827",
+      "collapse": false,
+      "shortTitle": "人气榜"
+    },
+    {
+      "_id": "5a68296bfc84c2b8ef9efdb0",
+      "title": "热销榜",
+      "cover": "/ranking-cover/142319144267827",
+      "collapse": false,
+      "shortTitle": "热搜榜"
+    },
+    {
+      "_id": "5a39ca20fc84c2b8ef82c9ed",
+      "title": "畅销榜",
+      "cover": "/ranking-cover/142319144267827",
+      "collapse": false,
+      "shortTitle": "畅销榜"
+    },
+    {
+      "_id": "5a39ca3ffc84c2b8ef82da82",
+      "title": "新书榜",
+      "cover": "/ranking-cover/142319144267827",
+      "collapse": false,
+      "shortTitle": "新书榜"
+    },
+    {
+      "_id": "5a39ca59fc84c2b8ef82e96c",
+      "title": "完结榜",
+      "cover": "/ranking-cover/142319144267827",
+      "collapse": false,
+      "shortTitle": "完结榜"
+    },
+    {
+      "_id": "5a39ca7dfc84c2b8ef82ff4f",
+      "title": "免费榜",
+      "cover": "/ranking-cover/142319144267827",
+      "collapse": false,
+      "shortTitle": "免费榜"
+    }
+  ]
+}
