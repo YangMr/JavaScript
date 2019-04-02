@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn1">获取所有分类</button>
+    <button id="btn2">获取排行榜类型</button>
+    <button id="btn3">获取排行榜小说</button>
+    <button id="btn4">获取分类下小类别</button>
+</body>
+</html>
+<script src="js/ajax.js"></script>
+<script>
+
+    var oBtn1 = document.getElementById("btn1");
+    var oBtn2 = document.getElementById("btn2");
+    var oBtn3 = document.getElementById("btn3");
+    var oBtn4 = document.getElementById("btn4");
+    var baseURL = "http://127.0.0.1:8888";
+
+    function get(url,obj){
+        ajax({
+            method : "get",
+            url : baseURL + url,
+            data:obj,
+            success : function (response) {
+                console.log(response)
+            },
+            async : true
+        })
+    }
+
+    oBtn1.onclick =function () {
+        get("/cats/lv2/statistics",{});
+    };
+    oBtn2.onclick =function () {
+        get("/ranking/gender",{});
+    }
+
+    oBtn3.onclick =function () {
+       get("/ranking/54d43437d47d13ff21cad58b",{});
+    }
+
+    oBtn4.onclick =function () {
+        get("/cats/lv2",{})
+    }
+</script>

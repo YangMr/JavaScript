@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--window.location.href = "https://www.google.com/search?q=hello&oq=hello"-->
+</body>
+</html>
+<script>
+
+  var box = "window.location.href = \"https://www.google.com/search?q=hello&oq=hello\"".split("?");
+    var para = box[1].split("&");
+    // ["q=hello","oq=hello"]
+  var len = box[1].split("&").length;
+  var arr = [];
+  var obj = {};
+    for(var i=0;i<len;i++){
+        arr = para[i].split("=");
+        obj[arr[0]]=arr[1];
+
+    }
+    console.log(obj)
+
+
+
+
+
+
+
+
+
+
+
+  /*  split()   //将字符串切割成数组
+    join()      //将数组解析为字符串*/
+
+</script>

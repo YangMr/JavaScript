@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+   <!-- <style>
+        html{font-size: 625%;width: 100%; height: 100%;}
+        body{font-size: .16rem; box-sizing: border-box; background: #eee;}
+        html,body,div,ul,li,h3{margin: 0; padding: 0;}
+        #wrap{min-width: 3.2rem; max-width: 6.4rem; margin: 0 auto; }
+        #wrap .section{background: #fff;}
+        #wrap .section h3{background: #ccc; padding: .05rem .1rem;}
+        #wrap .section ul{padding: 0 .2rem; list-style-type: none;}
+        #wrap .section ul li{height: .45rem; line-height: .45rem; border-bottom:1px solid #eee;}
+    </style>-->
+    <style>
+        body{
+            overflow: auto;
+        }
+        .bar-nav{
+            position: fixed;
+            top:0;
+            left:0;
+        }
+        .bar-tab{
+            position: fixed;
+            bottom:0;
+            left:0;
+        }
+        #wrap{
+            padding: 55px 0;
+           /* padding-top: 55px;
+            padding-bottom: 55px;*/
+        }
+        #wrap h3{
+            padding-left: 2rem;
+        }
+    </style>
+</head>
+<body>
+<!--标题栏-->
+<header class="bar bar-nav">
+    <h1 class="title">首页</h1>
+</header>
+    <div id="wrap">
+        <div class="section">
+            <h3>男生</h3>
+            <ul>
+
+            </ul>
+        </div>
+        <div class="section">
+            <h3>女生</h3>
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+<!--底部导航-->
+<nav class="bar bar-tab">
+    <a class="tab-item external active" href="#">
+        <span class="icon icon-home"></span>
+        <span class="tab-label">书架</span>
+    </a>
+    <a class="tab-item external" href="#">
+        <span class="icon icon-me"></span>
+        <span class="tab-label">排行</span>
+    </a>
+    <a class="tab-item external" href="#">
+        <span class="icon icon-star"></span>
+        <span class="tab-label">分类</span>
+    </a>
+
+    <a class="tab-item external" href="#">
+        <span class="icon icon-settings"></span>
+        <span class="tab-label">搜索</span>
+    </a>
+</nav>
+</body>
+</html>
+<script src="js/ajax.js"></script>
+<script>
+    var baseUrl = "http://127.0.0.1:8888";
+    var aUl = document.getElementsByTagName("ul");
+    ajax({
+        url :baseUrl + "/ranking/gender",
+        method : "get",
+        data : {},
+        success: function (response) {
+            console.log(JSON.parse(response));
+            var data = JSON.parse(response);
+            for(var i=0;i<data.male.length;i++){
+                var li = document.createElement("li");
+                li.innerHTML = data.male[i].title;
+                aUl[0].appendChild(li);
+            }
+
+            for(var i=0;i<data.female.length;i++){
+                var li = document.createElement("li");
+                li.innerHTML = data.female[i].title;
+                aUl[1].appendChild(li);
+            }
+
+            var ali = aUl[0].getElementsByTagName("li");
+            for(var i=0;i<ali.length;i++){
+                ali[i].index = i;
+                ali[i].onclick = function () {
+                    location.href = "xiaoshuo.html?data="+ data.male[this.index].totalRank;
+                }
+            }
+        },
+        async : true
+    })
+
+
+</script>

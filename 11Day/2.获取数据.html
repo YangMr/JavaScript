@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{padding: 20px; cursor: pointer; border:1px solid purple; color: #fff; background: slateblue; display: block; margin: 20px auto;}
+    </style>
+</head>
+<body>
+    <button id="GET">GET DATE</button>
+    <button id="GET">GET DATE</button> <button id="GET">GET DATE</button>
+    <button id="GET">GET DATE</button>
+
+</body>
+</html>
+<script src="js/ajax.js"></script>'
+<script>
+
+    var oGet = document.getElementById("GET");
+    oGet.onclick = function () {
+        ajax({
+            url : "http://127.0.0.1:8888/",
+            method : "get",
+            data : {},
+            success:function (response) {
+                console.log(response);
+            },
+            async : true
+        })
+    };
+
+</script>

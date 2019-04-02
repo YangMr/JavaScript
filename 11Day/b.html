@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>我是B页面</h1>
+</body>
+</html>
+<script>
+    var url = location.href;
+  function parseUrl(url) {
+      url = url.split("?")[1];
+      var params = url.split("&");
+      var arr = [];
+      var res = {};
+      for(var i=0;i<params.length;i++){
+         arr = params[i].split("=");
+         res[arr[0]] = arr[1];
+      }
+      return res;
+  }
+    console.log(parseUrl(url))
+</script>

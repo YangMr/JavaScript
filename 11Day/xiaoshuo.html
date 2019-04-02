@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+</head>
+<body>
+<!--标题栏-->
+<header class="bar bar-nav">
+    <h1 class="title">首页</h1>
+</header>
+
+<!--底部导航-->
+<nav class="bar bar-tab">
+    <a class="tab-item external active" href="#">
+        <span class="icon icon-home"></span>
+        <span class="tab-label">书架</span>
+    </a>
+    <a class="tab-item external" href="#">
+        <span class="icon icon-me"></span>
+        <span class="tab-label">排行</span>
+    </a>
+    <a class="tab-item external" href="#">
+        <span class="icon icon-star"></span>
+        <span class="tab-label">分类</span>
+    </a>
+
+    <a class="tab-item external" href="#">
+        <span class="icon icon-settings"></span>
+        <span class="tab-label">搜索</span>
+    </a>
+</nav>
+</body>
+</html>
+<script src="js/ajax.js"></script>
+<script>
+    function parseUrl(url) {
+        var url = url.split("?")[1];
+        var params = url.split("&");  //["name=jack", "age=100"]
+        var arr = [];
+        var res = {};
+        for(var i=0;i<params.length;i++){
+            arr = params[i].split("=");  //["name", "jack"]  ["age", "100"]
+            res[arr[0]] = arr[1];
+        }
+        return res;
+    }
+    // console.log(parseUrl(location.href))
+    var baseUrl = "http://127.0.0.1:8888";
+    ajax({
+        url : baseUrl + "/ranking/" + parseUrl(location.href).data,
+        method : "get",
+        data : {},
+        success : function (response) {
+            console.log(JSON.parse(response));
+        },
+        async : true
+    })
+
+</script>

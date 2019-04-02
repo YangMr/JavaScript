@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--window.location.href = "https://www.google.com/search?q=hello&oq=hello"-->
+</body>
+</html>
+<script>
+
+
+    var box = "https://www.baidu.com/login?name=jack&age=100&nice=123456";
+    function parseUrl(url) {
+        var url = url.split("?")[1];
+        var params = url.split("&");  //["name=jack", "age=100"]
+        var arr = [];
+        var res = {};
+        for(var i=0;i<params.length;i++){
+          arr = params[i].split("=");  //["name", "jack"]  ["age", "100"]
+          res[arr[0]] = arr[1];
+        }
+        return res;
+    }
+    console.log(parseUrl(box));
+
+
+
+
+
+
+
+
+
+  /*  split()   //将字符串切割成数组
+    join()      //将数组解析为字符串*/
+
+</script>
