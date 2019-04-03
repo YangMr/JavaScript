@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,div,span,a,ul,li,img{margin:0; padding: 0;}
+        #page{text-align: center; width: 990px; border:1px solid #ccc; padding:20px 0 20px 20px; margin: 50px auto;}
+        #page span{cursor: pointer; border:1px solid #ccc; border-radius: 5px; padding: 5px 10px;}
+        #page a{text-decoration: none; color:#333; font-size: 16px; padding: 0 10px;}
+        #page a.active{background: purple; color: #fff; border-radius: 3px;}
+        #list{width: 990px; margin: 20px auto 0; overflow: hidden;}
+        #list ul{list-style-type: none; padding: 2px; border:1px solid #ccc; float: left; margin-left: 14px;}
+        #list ul li{padding:5px 0 5px 10px; font-weight: bold; font-size: 18px;}
+        #list ul li.name{ font-weight: bold; font-size: 18px; font-family: "宋体B8B\4F53", sans- serif;}
+        #list ul li img{width: 300px; height: 280px;}
+    </style>
+</head>
+<body>
+
+<div id="list">
+    <!--<ul>
+        <li><img src="http://img.boqiicdn.com/Data/BK/P/img5701405934288.jpg" alt=""></li>
+        <li class="name">name : 法老王猎犬</li>
+        <li class="engName">engName : Pharaoh Hound</li>
+        <li class="price">price : 1000-3000元</li>
+    </ul>
+    <ul>
+        <li><img src="http://img.boqiicdn.com/Data/BK/P/img5701405934288.jpg" alt=""></li>
+        <li class="name">name : 法老王猎犬</li>
+        <li class="engName">engName : Pharaoh Hound</li>
+        <li class="price">price : 1000-3000元</li>
+    </ul>
+    <ul>
+        <li><img src="http://img.boqiicdn.com/Data/BK/P/img5701405934288.jpg" alt=""></li>
+        <li class="name">name : 法老王猎犬</li>
+        <li class="engName">engName : Pharaoh Hound</li>
+        <li class="price">price : 1000-3000元</li>
+    </ul>-->
+</div>
+
+<div id="page">
+    <span id="prev">上一页</span>
+    <a class="active" href="javascript:;">1</a>
+    <a href="javascript:;">2</a>
+    <a href="javascript:;">3</a>
+    <a href="javascript:;">4</a>
+    <a href="javascript:;">5</a>
+    <a href="javascript:;">6</a>
+    <a href="javascript:;">7</a>
+    <a href="javascript:;">8</a>
+    <a href="javascript:;">9</a>
+    <a href="javascript:;">10</a>
+    <a href="javascript:;">11</a>
+    <a href="javascript:;">12</a>
+    <span id="next">下一页</span>
+</div>
+
+</body>
+</html>
+<script src="js/ajax.js"></script>
+<script>
+
+    var oPage = document.getElementById("page");
+    var oList = document.getElementById("list");
+    var oA = oPage.getElementsByTagName("a");
+
+    ajax({
+        url : "https://api.apishop.net/common/dogFamily/queryDogList",
+        method : "get",
+        data : {
+            apiKey : "PxPlhAH1fedfa9cb4057fbfb2bc891f76796c58f6ccb4e1",
+            page : 1,
+            pageSize : 10
+        },
+        success : function (response) {
+            var data = JSON.parse(response).result.petFamilyList;
+            console.log(data)
+            for(var i=0;i<data.length;i++){
+                var ul = document.createElement("ul");
+                var str = " <li><img src=" + data[i].coverURL +" alt=></li>\n" +
+                    "        <li class=name>name : "+ data[i].name +"</li>\n" +
+                    "        <li class=engName>engName :" + data[i].engName +"</li>\n" +
+                    "        <li class=price>price :"+ data[i].price +"</li>";
+                ul.innerHTML = str;
+                oList.appendChild(ul);
+            }
+        },
+        async : true
+    })
+
+
+    for(var i=0;i<oA.length;i++){
+        oA[i].index = i;
+        oA[i].onclick = function () {
+            for(var i=0;i<oA.length;i++){
+                oA[i].className = "";
+            }
+            this.className = "active";
+            var that = this;
+            if((this.index+1) != 1){
+                ajax({
+                    url : "https://api.apishop.net/common/dogFamily/queryDogList",
+                    method : "get",
+                    data : {
+                        apiKey : "PxPlhAH1fedfa9cb4057fbfb2bc891f76796c58f6ccb4e1",
+                        page : that.index + 1,
+                        pageSize : 10
+                    },
+                    success : function (response) {
+                        alert("111")
+                        oList.innerHTML = "";
+                        var data = JSON.parse(response).result.petFamilyList;
+                        console.log(data)
+                        for(var i=0;i<data.length;i++){
+                            var ul = document.createElement("ul");
+
+                            var str = " <li><img src=" + data[i].coverURL +" alt=></li>\n" +
+                                "        <li class=name>name : "+ data[i].name +"</li>\n" +
+                                "        <li class=engName>engName :" + data[i].engName +"</li>\n" +
+                                "        <li class=price>price :"+ data[i].price +"</li>";
+                            ul.innerHTML = str;
+                            oList.appendChild(ul);
+                        }
+                    },
+                    async : true
+                })
+            }
+
+        }
+    }
+
+</script>
