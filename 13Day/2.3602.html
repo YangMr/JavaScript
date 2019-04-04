@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,div,input,button,ul,li{margin: 0;padding: 0;}
+        #form{width: 550px;  overflow: hidden; margin: 100px auto 0;}
+        #form input{width: 380px; height:33px;float: left;}
+        #form button{width: 166px; height:37px;float: left; border:1px solid #ccc; background: #eee;}
+        #form #list{clear: both; list-style-type: none; border: 1px solid #ccc; border-top:none;}
+        #form #list li{height:33px; line-height: 33px;}
+        #form #list li:hover{background: purple; color: #fff; cursor: pointer;}
+
+    </style>
+</head>
+<body>
+<div id="form">
+    <input type="text" id="search">
+    <button id="btn">搜索</button>
+    <ul id="list">
+
+    </ul>
+</div>
+
+</body>
+</html>
+<script src="js/ajax.js"></script>
+<script>
+
+    var oBtn = document.getElementById("btn");
+    var oList = document.getElementById("list");
+    var oSearch = document.getElementById("search");
+
+    oSearch.oninput = oSearch.onpropertychange = function () {
+        var script = document.createElement("script");
+        script.src="https://sug.so.360.cn/suggest?callback=success&word=" +  this.value;
+        document.body.appendChild(script);
+    }
+    //接受数据的回调函数
+    function success(response) {
+        oList.innerHTML = "";
+        console.log(response)
+        var data = response.s;
+        var str = "";
+        for(var i=0;i<data.length;i++){
+            var li = document.createElement("li");
+            str = data[i];
+            li.innerHTML = str;
+            oList.appendChild(li);
+        }
+
+        var aLi = document.getElementsByTagName("li");
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index = i;
+            aLi[i].onclick = function () {
+                window.location.href = "https://www.so.com/s?q=" + aLi[this.index].innerHTML;
+            }
+        }
+    }
+
+</script>

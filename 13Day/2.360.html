@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text">
+    <button id="btn">Clicks</button>
+</body>
+</html>
+<script src="js/ajax.js"></script>
+<script>
+
+    var oBtn = document.getElementById("btn");
+    oBtn.onclick = function () {
+        ajax({
+            url : "https://sug.so.360.cn/suggest",
+            method : "get",
+            data:{
+                callback : "suggest_so",
+                word : "a"
+            },
+            success : function (response) {
+                console.log(response);
+            },
+            async : true
+        })
+    }
+
+</script>

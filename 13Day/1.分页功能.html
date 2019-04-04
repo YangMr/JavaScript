@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,div,span,a,ul,li,img{margin:0; padding: 0;}
+        #page{text-align: center; width: 990px; border:1px solid #ccc; padding:20px 0 20px 20px; margin: 50px auto;}
+        #page span{cursor: pointer; border:1px solid #ccc; border-radius: 5px; padding: 5px 10px;}
+        #page a{text-decoration: none; color:#333; font-size: 16px; padding: 0 10px;}
+        #page a.active{background: purple; color: #fff; border-radius: 3px;}
+        #list{width: 990px; margin: 20px auto 0; overflow: hidden;}
+        #list ul{list-style-type: none; padding: 2px; border:1px solid #ccc; float: left; margin-left: 14px;}
+        #list ul li{padding:5px 0 5px 10px; font-weight: bold; font-size: 18px;}
+        #list ul li.name{ font-weight: bold; font-size: 18px; font-family: "宋体B8B\4F53", sans- serif;}
+        #list ul li img{width: 300px; height: 280px;}
+    </style>
+</head>
+<body>
+
+<div id="page">
+    <span id="prev">上一页</span>
+    <a class="active" href="javascript:;">1</a>
+    <a href="javascript:;">2</a>
+    <a href="javascript:;">3</a>
+    <a href="javascript:;">4</a>
+    <a href="javascript:;">5</a>
+    <a href="javascript:;">6</a>
+    <a href="javascript:;">7</a>
+    <a href="javascript:;">8</a>
+    <a href="javascript:;">9</a>
+    <a href="javascript:;">10</a>
+    <a href="javascript:;">11</a>
+    <a href="javascript:;">12</a>
+    <span id="next">下一页</span>
+</div>
+</body>
+</html>
+<script src="js/ajax.js"></script>
+<script>
+    var baseUrl = "http://127.0.0.1:8888";
+    var page = 0;
+    ajax({
+        url : baseUrl + "/book/by-categories",
+        method : "get",
+        data : {
+            gender: "male",
+            type: "hot",
+            major : "奇幻",
+            minor : "",
+            start : 0,
+            limit : 10
+        },
+        success : function (response) {
+            console.log( JSON.parse(response));
+            page = JSON.parse(response).total/10;
+        },
+        async : true
+    })
+
+    var oPage = document.getElementById("page");
+    var oA = oPage.getElementsByTagName("a");
+    var oPrev = document.getElementById("prev");
+    var oNext = document.getElementById("next");
+    var num =0; //页码
+    oPrev.onclick = function () {
+        if(num != 0){
+            num--;
+            tab(num);
+
+            ajax({
+                url : baseUrl + "/book/by-categories",
+                method : "get",
+                data : {
+                    gender: "male",
+                    type: "hot",
+                    major : "奇幻",
+                    minor : "",
+                    start : num,
+                    limit : 10
+                },
+                success : function (response) {
+                    console.log( JSON.parse(response));
+                },
+                async : true
+            })
+        }else{
+            alert("已经是第一页了");
+        }
+
+    }
+
+    oNext.onclick = function () {
+        num++;
+        if(num != page){
+            ajax({
+                url : baseUrl + "/book/by-categories",
+                method : "get",
+                data : {
+                    gender: "male",
+                    type: "hot",
+                    major : "奇幻",
+                    minor : "",
+                    start : num,
+                    limit : 10
+                },
+                success : function (response) {
+                    console.log( JSON.parse(response));
+                },
+                async : true
+            })
+        }else{
+            alert("已经是最后一页了,没有数据")
+        }
+        tab(num);
+    }
+
+    function tab(index) {
+        for(var i=0;i<oA.length;i++){
+            oA[i].className = "";
+        }
+        oA[index].className = "active";
+    }
+
+    for(var i=0;i<oA.length;i++){
+        oA[i].index = i;
+        oA[i].onclick = function () {
+            tab(this.index);
+
+            ajax({
+                url : baseUrl + "/book/by-categories",
+                method : "get",
+                data : {
+                    gender: "male",
+                    type: "hot",
+                    major : "奇幻",
+                    minor : "",
+                    start : this.index,
+                    limit : 10
+                },
+                success : function (response) {
+                    console.log( JSON.parse(response));
+                },
+                async : true
+            })
+        }
+    }
+
+</script>

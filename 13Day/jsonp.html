@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>please enter your title</title>
+    <meta charset="utf-8">
+    <meta name="Author" content="年轻人">
+    <style type='text/css'>
+        *{ margin:0; padding:0;}
+        #wrap{
+            width:480px;
+            height:30px;
+            margin: 150px auto;
+            FONT-FAMILY:'Microsoft yahei';
+        }
+
+        #txt{
+            width:400px;
+            height:26px;
+            FONT-FAMILY:'Microsoft yahei';
+        }
+        #btn{
+            width:50px;
+            height:30px;FONT-FAMILY:'Microsoft yahei';
+        }
+        #tip li{
+            list-style:none;
+            line-height:22px;
+            font-size:12px;
+            background:#f1f5f5;
+            width:400px;
+        }
+        #tip li a{
+            text-decoration:none;
+            color:#000;
+        }
+        #tip li:hover{
+            background:#ffccff;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <input type="text" id="txt" /><input type="button" id="btn" value="搜索" />
+    <ul id="tip" style="display:none;">
+    </ul>
+</div>
+
+
+<script type="text/javascript">
+    // https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=eva&cb=fly&_=1455891555476
+    var oTxt = document.getElementById('txt');
+    var oTip = document.getElementById('tip');
+
+    oTxt.onkeyup = function(){
+        var val = this.value;
+        var oS = document.createElement('script');
+        oS.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+ val +'&cb=fly&_='+new Date().getTime();
+        document.body.appendChild(oS);
+    }
+
+    function fly( flyJson ){
+        oTip.style.display = 'block';
+        oTip.innerHTML = '';
+        for ( var i=0;i<flyJson.s.length;i++ )
+        {
+            var oLi = document.createElement('li'),
+                oA = document.createElement('a');
+            oLi.appendChild(oA);
+            oA.innerHTML = flyJson.s[i];
+            oA.href = 'https://www.baidu.com/s?wd='+flyJson.s[i];
+            oTip.appendChild(oLi);
+        }
+
+    }
+</script>
+</body>
+</html>
