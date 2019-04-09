@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    function Box(name,value) {
+        // this.name = "123";
+    }
+  /*  Box.prototype.name = "jack";
+    Box.prototype.age = 200;
+    Box.prototype.run = function () {
+        return this.name + this.age + "运行中..."
+    };*/
+  Box.prototype = {
+      name : "jack",
+      age : 200,
+      run : function () {
+          return this.name + this.age + "运行中..."
+      }
+  }
+    var box = new Box();
+    var box2 = new Box();
+    // box.name = "123";
+    // box.name = "123";
+    // alert("name" in box)
+    // alert(box.hasOwnProperty("name"))
+
+    //判断实例没有检测的属性的时候,判断原型里面有没有检测的属性,原型和实例里面都有
+    function isProtoperty(object,protoperty) {
+        return !object.hasOwnProperty(protoperty) && (protoperty in object)
+    }
+    alert(isProtoperty(box,"name"));
+
+  /*  delete box.name;
+    alert(box.name);   //jack
+    box.name = "hello";
+    alert(box.name)*/
+    // alert(Box.prototype.isPrototypeOf(box))
+
+    // alert(box.__proto__.name)
+    /*alert(box.__proto__.name)
+    alert(box2.name)*/
+</script>

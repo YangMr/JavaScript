@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+
+    //构建函数
+    function Box(name,age) {
+
+        console.log(this)
+        this.name = name;
+        this.age = age;
+        this.run = function () {
+            return this.name + this.age + "运行中...";
+        }
+    }
+
+
+    var box = new Box("jack",100);
+    var box2 = new Box("rose",100);
+   console.log(box.run())
+   console.log(box2.run())
+
+</script>

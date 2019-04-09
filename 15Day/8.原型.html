@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    function Box(name,value) {
+        this.name = name;
+        this.age = value;
+        this.run = function () {
+            return this.name + this.age + "运行中....";
+        }
+    }
+    var box = new Box("rose",200)
+    alert(box.run())
+</script>

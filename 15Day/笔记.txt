@@ -1,0 +1,9 @@
+var box =  document.getElementById("box")
+box.onclick = function(){
+    alert("click")
+}
+box.innerHTML = "123"
+
+$().getId().click(function(){
+    alert("click")
+}).html("hello")

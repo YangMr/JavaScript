@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #test{width: 150px; height: 150px; border:1px solid #ccc; margin: 0 auto;}
+    </style>
+</head>
+<body>
+    <button id="btn">ClickS</button>
+    <button id="btn2">Click2</button>
+    <div id="test"></div>
+</body>
+</html>
+<script>
+
+   var oBtn = document.getElementById("btn");
+   var oBtn2 = document.getElementById("btn2");
+   var oTest = document.getElementById("test");
+
+   function createObject(element,attr,value) {
+       var obj = new Object();
+       obj.attr = attr;
+       obj.value = value;
+       obj.changeStyle = function () {
+           element.style[this.attr] = this.value;
+       };
+       return obj;
+   }
+
+   var box1 = createObject(oTest,"background","red");
+   var box2 = createObject(oTest,"width","400px");
+   box1.changeStyle();
+   box2.changeStyle();
+
+   // alert(typeof box1);
+   alert(box1 instanceof Object)
+
+
+
+ /*  var box = new Object();
+   box.attr = "background";
+   box.value = "red";
+   box.changeStyle = function () {
+       oTest.style[box.attr] = box.value;
+   }
+
+   oBtn.onclick = function () {
+       box.changeStyle();
+       box1.changeStyle();
+   }
+
+   var box1 = new Object();
+   box1.attr = "width";
+   box1.value = "400px";
+   box1.changeStyle = function () {
+       oTest.style[box1.attr] = box1.value;
+   }*/
+</script>

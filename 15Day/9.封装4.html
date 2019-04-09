@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">hello world</div>
+    <div id="box2">hello world</div>
+    <div id="box3">hello world</div>
+    <div id="box4">hello world</div>
+    <div id="box5">hello world</div>
+    <div id="box6">hello world</div>
+
+
+
+    <p>段落</p>
+    <p>段落</p>
+    <p class="demo">段落</p>
+
+    <input type="text" name="text">
+</body>
+</html>
+<script>
+
+    //对象式编程
+
+    var $ = {
+        //获取id
+        getId : function (id) {
+            return document.getElementById(id);
+        },
+        //获取tagName
+        getTagName : function (tag) {
+            return document.getElementsByTagName(tag);
+        },
+        //获取Name
+        getName : function (name) {
+            return document.getElementsByName(name);
+        },
+        //获取className
+        getClassName : function (className) {
+            return document.getElementsByClassName(className);
+        }
+    }
+
+
+   $.getId("box").style.background = "red";
+
+   $.getTagName("p")[0].style.background = "yellow";
+
+   $.getClassName("demo")[0].style.fontSize = "50px"
+
+   $.getName("text")[0].value = "请输入..."
+
+
+   /* //函数式编程
+
+    //获取id的方法
+    function getId(name) {
+        return document.getElementById(name)
+    }
+    //获取tagName的方法
+    function getTag(name) {
+        return document.getElementsByTagName(name);
+    }
+    //获取name的方法
+    function getName(name) {
+        return document.getElementsByName(name);
+    }
+    //获取class的方法
+    function getClass(name) {
+        return document.getElementsByClassName(name);
+    }
+
+
+
+    getId("box").style.background = "red";
+
+    getTag("p")[0].style.background = "yellow"
+
+    getName("text")[0].value = "请输入";
+
+    getClass("demo")[0].style.fontSize = "30px"*/
+
+ /*   var oBox = document.getElementById("box");
+    var oBox2 = document.getElementById("box2");
+    var oBox3 = document.getElementById("box3");
+    var oBox4 = document.getElementById("box4");
+    var oBox5 = document.getElementById("box5");
+    var oBox6 = document.getElementById("box6");*/
+
+
+</script>
