@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #box{width: 150px; height: 150px; border:1px solid #ccc; margin: 100px auto;}
+
+    </style>
+</head>
+<body>
+<input type="text" id="num1">
+<select name="" id="ys">
+    <option value="add">+</option>
+    <option value="subtract">-</option>
+    <option value="take">*</option>
+    <option value="divide">/</option>
+</select>
+<input type="text" id="num2">
+=
+<button id="result">求值</button>
+<strong id="count"></strong>
+</body>
+</html>
+<script>
+
+  var n1 = document.getElementById("num1");
+  var n2 = document.getElementById("num2");
+  var r = document.getElementById("result");
+  var ys = document.getElementById("ys");
+  var c = document.getElementById("count");
+  var count = 0;
+  r.onclick = function () {
+     v1 = parseInt(n1.value);
+     v2 = parseInt(n2.value);
+     switch (ys.value){
+         case "add":
+             count = v1 + v2;
+             break;
+         case "subtract" :
+             count = v1 - v2;
+             break;
+         case "take" :
+             count = v1 * v2;
+             break;
+         case "divide":
+             count = v1 / v2;
+             break;
+     }
+
+    c.innerHTML = count;
+  /*  n1.value = "";
+    n2.value = "";*/
+  }
+
+
+
+</script>

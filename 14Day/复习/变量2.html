@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="a">start</button>
+    <button id="b">stop</button>
+</body>
+</html>
+<script>
+
+    var oA = document.getElementById("a");
+    var oB = document.getElementById("b");
+    var timer = null;
+    oA.onclick = function () {
+        timer = setInterval(function () {
+            alert("hello")
+        },3000)
+    }
+    oB.onclick = function () {
+        clearInterval(timer);
+    }
+
+</script>

@@ -5,11 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text">
+<input type="text" id="search">
     <button id="btn">Clicks</button>
 </body>
 </html>
-<script src="js/ajax.js"></script>
+<script src="ajax.js"></script>
 <script>
 
     var oBtn = document.getElementById("btn");
@@ -17,9 +17,9 @@
         ajax({
             url : "https://sug.so.360.cn/suggest",
             method : "get",
+            dataType : "jsonp",
             data:{
-                callback : "suggest_so",
-                word : "a"
+                word : search.value
             },
             success : function (response) {
                 console.log(response);

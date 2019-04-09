@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+
+
+    //创建工厂
+    function createObject(name,age) {
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        obj.run = function () {
+            return this.name + this.age + "运行中..."
+        };
+        alert("111")
+        return obj;
+    }
+
+    var box1 = createObject("jack",20);
+    var box2 = createObject("rose",30);
+
+    alert(box1.run());
+    alert(box2.run());
+
+
+
+
+
+</script>

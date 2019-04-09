@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    var box = new Object();
+    box.name = "jack";
+    box.age = 20;
+    box.run = function () {
+        return this.name + this.age + "运行中..."
+    };
+
+    alert(box.run())
+
+    var box2 = new Object();
+    box2.name = "rose";
+    box2.age= 18;
+    box2.sun = function () {
+        return this.name + this.age + "运行中"
+    };
+
+    alert(box2.sun());
+</script>

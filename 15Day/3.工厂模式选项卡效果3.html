@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,div,ul,li{margin: 0; padding: 0;}
+        ul{list-style-type: none;}
+        .tab{width: 580px;border: 1px solid #ccc; margin: 100px auto;}
+        .tab ul{border-bottom: 1px solid #ccc; overflow: hidden; background: #eee;}
+        .tab ul li{float: left;height:35px; line-height: 35px; width: 110px; text-align: center; border-right:1px solid #ccc; cursor: pointer; }
+        .tab ul li.active{background: purple; color: #fff;}
+        .container{ height:280px; overflow: hidden;}
+        .container div{ display: none; height:280px; text-align: center; line-height: 280px; border-bottom:1px solid #ccc;}
+        .container div.show {display: block;}
+    </style>
+</head>
+<body>
+    <div class="tab" id="tab1">
+        <ul>
+            <li class="active">唱歌</li>
+            <li>音乐</li>
+            <li>打游戏</li>
+        </ul>
+        <div class="container" id="container1">
+            <div class="show">唱歌栏目</div>
+            <div>音乐栏目</div>
+            <div>打游戏栏目</div>
+        </div>
+    </div>
+
+    <div class="tab" id="tab2">
+        <ul>
+            <li class="active">唱歌</li>
+            <li>音乐</li>
+            <li>打游戏</li>
+        </ul>
+        <div class="container" id="container2">
+            <div class="show">唱歌栏目</div>
+            <div>音乐栏目</div>
+            <div>打游戏栏目</div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+    var oTab1 = document.getElementById("tab1");
+    var aLi1 = oTab1.getElementsByTagName("li");
+    var oCon1 = document.getElementById("container1");
+    var aDiv1 = oCon1.getElementsByTagName("div");
+    for(var i=0;i<aLi1.length;i++){
+        aLi1[i].index = i;
+        aLi1[i].onclick = function () {
+            for(var i=0;i<aLi1.length;i++){
+                aLi1[i].className = ""
+                aDiv1[i].className = "";
+            }
+            aLi1[this.index].className = "active";
+            aDiv1[this.index].className = "show"
+        }
+    }
+
+    var oTab2 = document.getElementById("tab2");
+    var aLi2 = oTab2.getElementsByTagName("li");
+    var oCon2 = document.getElementById("container2");
+    var aDiv2 = oCon2.getElementsByTagName("div");
+    for(var j=0;j<aLi2.length;j++){
+        aLi2[j].index = j;
+        aLi2[j].onclick = function () {
+            for(var j=0;j<aLi2.length;j++){
+                aLi2[j].className = "";
+                aDiv2[j].className = "";
+            }
+            aLi2[this.index].className = "active";
+            aDiv2[this.index].className = "show";
+        }
+    }
+</script>
