@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    function Base(name,age) {
+        this.name = name;
+        this.age = age;
+        this.family = ["a","b","c"];
+        if(typeof this.run != "function"){
+            alert("第一次调用")
+            Base.prototype.run = function () {
+                return this.name + this.age + this.family;
+            }
+        }
+
+    }
+
+
+    var base1 = new Base("jack",100);
+    var base2 = new Base("rose",200);
+
+    base1.family.push("d");
+    console.log(base1.run());
+    console.log(base1.run());
+    console.log(base2.run());
+    console.log(base2.run());
+
+
+
+   /* //1. 不能传参
+    //2. 原型的属性和值式引用类型被共享了
+
+    function Base(name,age) {
+        this.name = name;
+        this.age =age;
+        this.family = ["姐姐","妹妹","哥哥"]
+    }
+
+    Base.prototype = {
+        run : function () {
+            return this.name + this.age + this.family;
+        }
+    }
+
+    var base1 = new Base("jack",100);
+    var base2 = new Base("rose",200);
+    base1.family.push("爸爸");
+    console.log(base1.run());
+    console.log(base2.run());
+*/
+
+/*
+
+    function Box() {
+
+    }
+
+    Box.prototype = {
+        name : "jack",
+        age : 100,
+        family : ["哥哥","姐姐","弟弟"],
+        run : function () {
+            return this.family;
+        }
+    }
+
+    var box1 = new Box();
+    var box2 = new Box();
+
+    console.log(box1.run())
+
+    box1.family.push("爸爸")
+    console.log(box1.run())
+    console.log(box2.run())
+
+*/
+
+
+</script>

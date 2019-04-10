@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    function Base() {
+
+    }
+
+    Base.prototype = {
+        // constructor : "Base",
+        name : "jack",
+        age : 100,
+        run : function () {
+            console.log(this.constructor)
+            return this.name + this.age + "运行中...";
+
+        }
+    };
+
+    Base.prototype = {
+        age  : 200
+    }
+
+    var base = new Base();
+    console.log(base.run())
+
+
+
+
+</script>

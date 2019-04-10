@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+
+    function Box() {
+
+    }
+
+    Box.prototype = {
+        name : "jack",
+        age : 100,
+        family : ["哥哥","姐姐","弟弟"],
+        run : function () {
+            return this.family;
+        }
+    }
+
+    var box1 = new Box();
+    var box2 = new Box();
+
+    console.log(box1.run())
+
+    box1.family.push("爸爸")
+    console.log(box1.run())
+    console.log(box2.run())
+
+
+
+</script>

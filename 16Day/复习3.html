@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+
+    function Box(name,age) {
+        this.name = name;
+        this.age = age;
+        this.run = function () {
+            return this.name + this.age + "运行中...";
+        }
+    }
+    var box1 = new Box("jack",100);
+    var box2 = new Box("jack",100);
+
+    console.log(box1.run())
+    console.log(box2.run())
+
+    function Box2(name,age) {
+        this.name = name;
+        this.age = age;
+        this.run = function () {
+            return this.name + this.age + "运行中...";
+        }
+    }
+    var box3 = new Box2("jack",100);
+    var box4 = new Box2("jack",100);
+
+    console.log(box3.run())
+    console.log(box4.run())
+
+    alert(box1 instanceof Box);
+    alert(box3 instanceof Box);
+
+   /* function createObject(name,age) {
+       var obj = new Object();
+       obj.name = name;
+       obj.age = age;
+       obj.run = function () {
+           return this.name + this.age + "运行中...";
+       }
+       return obj;
+    }
+
+
+    var box1 = createObject("jack",100);
+
+    var box2 = createObject("rose",200);
+
+    console.log(box1.run());
+    console.log(box2.run());
+
+    alert(typeof box1)
+    alert(box1 instanceof Object)*/
+   /* var box1 = new Object();
+    box1.name = "jack";
+    box1.age = "rose";
+    box1.run = function () {
+        return this.name + this.age + "运行中...";
+    }
+    console.log(box1.run())
+
+    var box2 = new Object();
+    box2.name = "nick";
+    box2.age = 100;
+    box2.run = function () {
+        return this.name + this.age + "运行中...";
+    }*/
+</script>

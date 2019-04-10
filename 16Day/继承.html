@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    function GrandFather() {
+         this.mony = 10000000;
+    }
+
+    function My() {
+        this.fous = "房子";
+        this.get = function () {
+            return this.mony + this.fous;
+        }
+    }
+
+    My.prototype = new GrandFather();
+
+    var my = new My();
+
+
+
+    function sunzi() {
+        this.oGet = function () {
+            return this.mony + this.fous;
+        }
+    }
+
+    sunzi.prototype = new My();
+
+    var sz = new sunzi();
+
+    console.log(sz.oGet())
+
+
+alert(sz instanceof GrandFather);
+alert(sz instanceof My);
+alert(sz instanceof Object);
+alert(my instanceof sunzi);
+
+
+</script>
