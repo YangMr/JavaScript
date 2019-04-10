@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    function Box(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Box.prototype.run = function () {
+      return this.name + this.age + "运行中...";
+    };
+
+    function Desk(name,age) {
+        Box.call(this,name,age)
+    }
+
+    Desk.prototype = new Box();
+
+    var desk = new Desk("JACK",100);
+    alert(desk.name)
+    alert(desk.age)
+    alert(desk.run())
+
+
+
+
+</script>

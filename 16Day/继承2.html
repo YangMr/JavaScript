@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Box(age) {
+        this.name = ["张三","李四","王五"];
+        this.age = age;
+    }
+    Box.prototype.run = function () {
+        return this.name + this.age + "运行中...";
+    };
+    function Demo(age) {
+        Box.call(this,age)
+    }
+    function Tab(age,) {
+        Demo.call(this,age)
+    }
+
+    var tab = new Tab("200");
+
+    alert(tab.name);
+    alert(tab.age);
+    alert(tab.run());
+
+</script>

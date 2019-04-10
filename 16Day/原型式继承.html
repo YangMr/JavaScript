@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+
+
+    function obj(o) {
+        function F() {}
+        F.prototype = o;
+        return new F();
+    }
+
+    var box = {
+        name : "jack",
+        arr : ["哥哥","姐姐","妹妹"]
+    };
+
+    var box1 = obj(box);
+    var box2 = obj(box);
+    box1.arr.push("爸爸");
+    alert(box1.name);
+    alert(box2.name);
+    alert(box1.arr);
+    alert(box2.arr);
+
+
+</script>
