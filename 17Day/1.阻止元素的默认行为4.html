@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="https://www.baidu.com">百度</a>
+</body>
+</html>
+<script>
+
+    function preDef(e) {
+        var e = e || window.event;
+        if(e.preventDefault){
+            e.preventDefault();
+        }else{
+            e.returnValue = false;
+        }
+    }
+
+    var oA = document.getElementsByTagName("a")[0];
+    var num = 10;
+    oA.onclick = function (e) {
+        preDef(e);
+       alert("hello")
+    }
+
+
+</script>

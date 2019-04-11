@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>hello1</p>
+<p>hello2</p>
+<p>hello3</p>
+<p>hello4</p>
+<p>hello5</p>
+<p>hello6</p>
+<p>hello7</p>
+<p>hello8</p>
+<p>hello9</p>
+<p>hello10</p>
+<p>hello11</p>
+<p>hello12</p>
+<p>hello13</p>
+<p>hello14</p>
+<p>hello15</p>
+<p>hello16</p>
+<p>hello17</p>
+<p>hello18</p>
+<p>hello19</p>
+<p>hello20</p>
+<p>hello21</p>
+<p>hello22</p>
+<p>hello23</p>
+<p>hello24</p>
+<p>hello25</p>
+<p>hello26</p>
+<p>hello27</p>
+<p>hello28</p>
+<p>hello29</p>
+<p>hello30</p>
+<p>hello31</p>
+<p>hello32</p>
+<p>hello33</p>
+<p>hello34</p>
+<p>hello35</p>
+<p>hello36</p>
+<p>hello37</p>
+<p>hello38</p>
+<p>hello39</p>
+<p>hello40</p>
+<p>hello41</p>
+<p>hello42</p>
+<p>hello43</p>
+<p>hello44</p>
+<p>hello45</p>
+<p>hello46</p>
+<p>hello47</p>
+<p>hello48</p>
+<p>hello49</p>
+<p>hello50</p>
+<p>hello51</p>
+<p>hello52</p>
+<p>hello53</p>
+<p>hello54</p>
+<p>hello55</p>
+<p>hello56</p>
+<p>hello57</p>
+<p>hello58</p>
+<p>hello59</p>
+<p>hello60</p>
+<p>hello61</p>
+<p>hello62</p>
+<p>hello63</p>
+<p>hello64</p>
+<p>hello65</p>
+<p>hello66</p>
+<p>hello67</p>
+<p>hello68</p>
+<p>hello69</p>
+<p>hello70</p>
+<p>hello71</p>
+<p>hello72</p>
+<p>hello73</p>
+<p>hello74</p>
+<p>hello75</p>
+<p>hello76</p>
+<p>hello77</p>
+<p>hello78</p>
+<p>hello79</p>
+<p>hello80</p>
+<p>hello81</p>
+<p>hello82</p>
+<p>hello83</p>
+<p>hello84</p>
+<p>hello85</p>
+<p>hello86</p>
+<p>hello87</p>
+<p>hello88</p>
+<p>hello89</p>
+<p>hello90</p>
+<p>hello91</p>
+<p>hello92</p>
+<p>hello93</p>
+<p>hello94</p>
+<p>hello95</p>
+<p>hello96</p>
+<p>hello97</p>
+<p>hello98</p>
+<p>hello99</p>
+<p>hello100</p>
+</body>
+</html>
+<script>
+
+    var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
+
+    function addEvent(obj, type, fn) {				//添加事件兼容
+        if (obj.addEventListener) {
+            obj.addEventListener(type, fn);
+        } else if (obj.attachEvent) {
+            obj.attachEvent('on' + type, fn);
+        }
+    }
+
+    addEvent(window,mousewheelevt,function (e) {
+        alert(getWD(e))
+    })
+
+    function getWD(e) {
+        var e = e || window.event;
+        if(e.wheelDelta){
+            return e.wheelDelta;
+        }else{
+            return -e.detail * 40;
+        }
+    }
+
+</script>

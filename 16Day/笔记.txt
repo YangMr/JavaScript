@@ -31,7 +31,9 @@
 
 
 
-    案例练习: https://www.cnblogs.com/chiangchou/p/js-oop1.html
+    案例练习:
+        https://www.cnblogs.com/chiangchou/p/js-oop1.html
+        https://www.cnblogs.com/shizk/p/9561997.html
 
 
 

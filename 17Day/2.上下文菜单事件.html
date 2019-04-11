@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,div,ul,li{margin: 0; padding: 0;}
+        ul{width: 250px; border: 1px solid #ccc; display: none; border-bottom:none; position: absolute; left: 0; top: 0; list-style-type: none;}
+        ul li{border-bottom: 1px solid #ccc; height: 38px; cursor: pointer;line-height: 38px; padding-left: 25px;}
+        ul li:hover{background: #eee; }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>查看源代码</li>
+        <li>分享到</li>
+        <li>翻译</li>
+        <li>哈哈哈哈哈</li>
+    </ul>
+</body>
+</html>
+<script>
+
+    function preDef(e) {
+        var e = e || window.event;
+        if(e.preventDefault){
+            e.preventDefault();
+        }else{
+            e.returnValue = false;
+        }
+    }
+    var ul = document.getElementsByTagName("ul")[0];
+    document.oncontextmenu = function (e) {
+        preDef(e);
+        ul.style.display = "block";
+        var disX = e.clientX;
+        var disY = e.clientY;
+        ul.style.left = disX + "px";
+        ul.style.top = disY + "px";
+    };
+
+    var aLi = ul.getElementsByTagName("li");
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onclick = function (e) {
+            ul.style.display = "none";
+            prevDent(e)
+        }
+    }
+
+    function prevDent(e){
+        var e = e || window.event;
+        if(e.stopPropagation){
+            e.stopPropagation();
+        }else{
+            e.cancelBubble = true;
+        }
+    }
+
+    document.onclick = function () {
+        alert("222")
+        ul.style.display = "none";
+    }
+</script>

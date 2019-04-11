@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="https://www.baidu.com">百度</a>
+</body>
+</html>
+<script>
+
+    var oA = document.getElementsByTagName("a")[0];
+    var num = 10;
+    oA.onclick = function (e) {
+    /*   var e = e || window.event;
+       e.preventDefault();*/
+        window.event.returnValue = false;
+       alert("hello")
+    }
+
+
+</script>
