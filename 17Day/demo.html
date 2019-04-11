@@ -67,8 +67,11 @@
     var step = 0;
     var num = 0;
     var a = (oArticle.offsetHeight - oWrap.offsetHeight)/45;
+    /*addEvent(oScroll,mousewheelevt,function (e) {
+        alert(getWD(e))
+    })*/
     addEvent(oScroll, mousewheelevt,function (e) {
-        if(getWD(e) == -120){
+        if(getWD(e) < 0){
             step+=10;
             console.log(step)
             if(step > 450){
