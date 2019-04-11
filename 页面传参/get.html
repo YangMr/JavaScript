@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{list-style-type: none; width: 400px; margin: 30px auto;}
+        ul li{display: inline-block; cursor: pointer;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li>周榜</li>
+        <li>月榜</li>
+        <li>总榜</li>
+    </ul>
+</body>
+</html>
+<script src="js/ajax.js"></script>
+<script>
+
+    var aLi = document.getElementsByTagName("li");
+
+    function parseUrl(url) {
+        var  params = url.split("?")[1].split("&");
+        var arr = [];
+        var obj = {};
+        for(var i=0;i<params.length;i++){
+            arr = params[i].split("=");
+            obj[arr[0]] = arr[1];
+        }
+        return obj;
+    }
+    var url = location.href;
+    console.log(parseUrl(url))
+
+    var array = [];
+    for(var item in parseUrl(url)){
+        array.push(item)
+    }
+    console.log(array)
+    var a = "";
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onclick = function () {
+            ajax({
+                method : "get",
+                url : "http://127.0.0.1:8888/ranking/" + parseUrl(url)[array[this.index]],
+                data:{},
+                success : function (response) {
+                    console.log(JSON.parse(response))
+                },
+                async : true
+            })
+        }
+    }
+    ajax({
+        method : "get",
+        url : "http://127.0.0.1:8888/ranking/" + parseUrl(url)._id,
+        data:{},
+        success : function (response) {
+            console.log(JSON.parse(response))
+        },
+        async : true
+    })
+</script>

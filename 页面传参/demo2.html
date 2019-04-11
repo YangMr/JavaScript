@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    var str = "https://www.google.com/search?q=hello&oq=hello123";
+
+
+    function parseUrl(str) {
+        var a = str.split("?")[1].split("&");
+        var arr = [];
+        var obj = {};
+        for(var i=0;i<a.length;i++){
+           arr = a[i].split("=");
+            obj[arr[0]] = arr[1];
+        }
+        return obj
+    }
+
+    console.log(parseUrl("a.html?id=100&name=jack"))
+
+
+    /*var a = str.split("?")[1];
+    var b = a.split("&");
+    var arr = [];
+   for(var i=0;i<b.length;i++){
+       var c = b[i].split("=");
+       var obj = {};
+       obj[c[0]] = c[1];
+       arr.push(obj)
+   }*/
+
+
+  /* [
+       {name : "jack"},
+       {age : 100}
+   ]*/
+
+
+
+</script>

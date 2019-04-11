@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{cursor: pointer;}
+    </style>
+</head>
+<body>
+    <ul id="list">
+
+    </ul>
+</body>
+</html>
+<script src="js/ajax.js"></script>
+<script>
+
+    ajax({
+        method : "get",
+        url : "http://127.0.0.1:8888/ranking/gender",
+        data: {
+
+        },
+        success : function (response) {
+            console.log(JSON.parse(response));
+            var data = JSON.parse(response).male;
+            for(var i=0;i<data.length;i++){
+                var li = document.createElement("li");
+                li.innerHTML = data[i].title;
+                list.appendChild(li)
+            }
+
+            var ali = document.getElementsByTagName("li");
+            for(var i=0;i<ali.length;i++){
+                ali[i].index = i;
+                ali[i].onclick = function () {
+                    window.location.href = "./get.html?_id=" + data[this.index]._id + "&monthRank=" + data[this.index].monthRank + "&totalRank=" + data[this.index].totalRank;
+                }
+            }
+
+        },
+        async : true
+    })
+
+</script>

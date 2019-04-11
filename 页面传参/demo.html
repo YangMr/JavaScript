@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    var str = "https://www.google.com/search?q=hello&oq=hello123";
+    var str = "https://www.google.com/search?q=hello&oq=hello123";
+    var str = "https://www.google.com/search?q=hello&oq=hello123";
+
+    var a = str.split("?")[1];
+    var b = a.split("&");
+    var arr = [];
+   for(var i=0;i<b.length;i++){
+       var c = b[i].split("=");
+       var obj = {};
+       obj[c[0]] = c[1];
+       arr.push(obj)
+   }
+
+
+  /* [
+       {name : "jack"},
+       {age : 100}
+   ]*/
+
+
+
+</script>
