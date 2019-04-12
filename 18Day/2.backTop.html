@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{height: 2000px;}
+        #backTop{position: fixed; display: none; cursor: pointer; right: 50px; bottom: 100px; width: 50px; height: 50px; text-align: center;  background: #333; color: #fff; font-family: "宋体B8B\4F53", sans- serif; font-size: 18px;}
+    </style>
+</head>
+<body>
+    <div id="backTop">返回顶部</div>
+</body>
+</html>
+<script>
+    var backTop = document.getElementById("backTop");
+
+    var scroll = {
+        getTop : function () {
+            return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        },
+        getLeft : function () {
+            return document.documentElement.scrollLeft || window.pageXOffset || document.body.scrollLeft;
+
+        },
+        setTop :function (value) {
+            if(document.documentElement.scrollTop){
+                document.documentElement.scrollTop = value;
+            }else if(window.pageYOffset){
+                window.pageYOffset = value;
+            }else if(document.body.scrollTop){
+                document.body.scrollTop = value;
+            }
+        }
+    };
+
+    window.onscroll = function () {
+        if(scroll.getTop() > 200){
+            backTop.style.display = "block";
+        }else{
+            backTop.style.display = "none";
+        }
+    }
+
+    backTop.onclick = function () {
+        scroll.setTop(0)
+    }
+
+
+
+
+</script>
