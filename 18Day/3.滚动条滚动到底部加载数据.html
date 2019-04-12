@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="list">
+    <li>我的数据1</li>
+    <li>我的数据2</li>
+    <li>我的数据3</li>
+    <li>我的数据4</li>
+    <li>我的数据5</li>
+    <li>我的数据6</li>
+    <li>我的数据7</li>
+    <li>我的数据8</li>
+    <li>我的数据9</li>
+    <li>我的数据10</li>
+    <li>我的数据11</li>
+    <li>我的数据12</li>
+    <li>我的数据13</li>
+    <li>我的数据14</li>
+    <li>我的数据15</li>
+    <li>我的数据16</li>
+    <li>我的数据17</li>
+    <li>我的数据18</li>
+    <li>我的数据19</li>
+    <li>我的数据20</li>
+    <li>我的数据21</li>
+    <li>我的数据22</li>
+    <li>我的数据23</li>
+    <li>我的数据24</li>
+    <li>我的数据25</li>
+    <li>我的数据26</li>
+    <li>我的数据27</li>
+    <li>我的数据28</li>
+    <li>我的数据29</li>
+    <li>我的数据30</li>
+    <li>我的数据31</li>
+    <li>我的数据32</li>
+    <li>我的数据33</li>
+    <li>我的数据34</li>
+    <li>我的数据35</li>
+    <li>我的数据36</li>
+    <li>我的数据37</li>
+    <li>我的数据38</li>
+    <li>我的数据39</li>
+    <li>我的数据40</li>
+    <li>我的数据41</li>
+    <li>我的数据42</li>
+    <li>我的数据43</li>
+    <li>我的数据44</li>
+    <li>我的数据45</li>
+    <li>我的数据46</li>
+    <li>我的数据47</li>
+    <li>我的数据48</li>
+    <li>我的数据49</li>
+    <li>我的数据50</li>
+    <li>我的数据51</li>
+    <li>我的数据52</li>
+    <li>我的数据53</li>
+    <li>我的数据54</li>
+    <li>我的数据55</li>
+    <li>我的数据56</li>
+    <li>我的数据57</li>
+    <li>我的数据58</li>
+    <li>我的数据59</li>
+    <li>我的数据60</li>
+    <li>我的数据61</li>
+    <li>我的数据62</li>
+    <li>我的数据63</li>
+    <li>我的数据64</li>
+    <li>我的数据65</li>
+    <li>我的数据66</li>
+    <li>我的数据67</li>
+    <li>我的数据68</li>
+    <li>我的数据69</li>
+    <li>我的数据70</li>
+    <li>我的数据71</li>
+    <li>我的数据72</li>
+    <li>我的数据73</li>
+    <li>我的数据74</li>
+    <li>我的数据75</li>
+    <li>我的数据76</li>
+    <li>我的数据77</li>
+    <li>我的数据78</li>
+    <li>我的数据79</li>
+    <li>我的数据80</li>
+    <li>我的数据81</li>
+    <li>我的数据82</li>
+    <li>我的数据83</li>
+    <li>我的数据84</li>
+    <li>我的数据85</li>
+    <li>我的数据86</li>
+    <li>我的数据87</li>
+    <li>我的数据88</li>
+    <li>我的数据89</li>
+    <li>我的数据90</li>
+    <li>我的数据91</li>
+    <li>我的数据92</li>
+    <li>我的数据93</li>
+    <li>我的数据94</li>
+    <li>我的数据95</li>
+    <li>我的数据96</li>
+    <li>我的数据97</li>
+    <li>我的数据98</li>
+    <li>我的数据99</li>
+    <li>我的数据100</li>
+</ul>
+</body>
+</html>
+<script>
+    //获取可视区域的宽度和高度
+    var view = {
+        //获取可视区域的宽度
+        getPortWidth : function () {
+            return document.documentElement.clientWidth || document.body.clientWidth;
+        },
+        //获取可视区域的高度
+        getPortHeight : function () {
+            return document.documentElement.clientHeight || document.body.clientHeight;
+        }
+    };
+
+    //获取滚动条滚动的距离
+    var scroll = {
+        getTop : function () {
+            return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        },
+        getLeft : function () {
+            return document.documentElement.scrollLeft || window.pageXOffset || document.body.scrollLeft;
+
+        },
+        getHeight : function(){
+            return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        },
+        getWidth : function(){
+            return Math.max(document.body.scrollWidth, document.documentElement.scrollWidth);
+        },
+        setTop :function (value) {
+            if(document.documentElement.scrollTop){
+                document.documentElement.scrollTop = value;
+            }else if(window.pageYOffset){
+                window.pageYOffset = value;
+            }else if(document.body.scrollTop){
+                document.body.scrollTop = value;
+            }
+        },
+        setLeft : function (value) {
+            if(document.documentElement.scrollLeft){
+                document.documentElement.scrollLeft = value;
+            }else if(window.pageXOffset){
+                window.pageXOffset = value;
+            }else if(document.body.scrollLeft){
+                document.body.scrollLeft = value;
+            }
+        }
+    };
+
+
+    var list = document.getElementById("list");
+    var count = 100;
+    var num = 10;
+    window.onscroll = function () {
+
+        if(num <= count){
+            if(scroll.getTop() + view.getPortHeight() >= scroll.getHeight()){
+                alert(num)
+                num = num +10;
+                for(var i = 0;i<10;i++){
+                    var li = document.createElement("li");
+                    li.innerHTML = "我的数据";
+                    list.appendChild(li);
+                }
+            }
+        }
+
+    }
+
+</script>
