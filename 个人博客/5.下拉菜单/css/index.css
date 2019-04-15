@@ -1,0 +1,10 @@
+body{background: #fff;}
+.header{width: 100%; background: url("../img/header_bg.png") repeat-x;}
+.header .header-center{width: 900px; margin: 0 auto;}
+.header .header-logo{width: 100px; height:30px; overflow: hidden;}
+.header .header-member,.header .header-register,.header .header-login{cursor: pointer; height:30px; line-height:30px; font-size: 14px;}
+.header .header-member{width: 70px; position: relative; background: url("../img/arrow.png") no-repeat 60px center;}
+.header .header-register,.header .header-login{width: 35px;}
+.header .member{display: none; padding: 10px 0; width: 100px; position: absolute; left:-15px; top: 30px; background: #FBF7E1; border:1px solid #ccc; border-top:none;}
+.header .member li{background: url("../img/arrow3.gif") no-repeat 5px center; text-indent: 25px; height: 25px; line-height: 25px;}
+.header .member li:hover{background:#FFCC00 url("../img/arrow4.gif") no-repeat 5px center; }
