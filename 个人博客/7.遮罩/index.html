@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <script src="js/tool.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+<!--header区域-->
+<div class="header">
+    <div class="header-center clearfix">
+        <div class="header-logo fl">
+            <img src="img/logo.gif" alt="">
+        </div>
+        <div class="header-member fr">
+            个人中心
+            <ul class="member">
+                <li>换肤</li>
+                <li>发文</li>
+                <li>帮助</li>
+                <li>退出</li>
+            </ul>
+        </div>
+        <div class="header-register fr">注册</div>
+        <div class="header-login fr">登录</div>
+    </div>
+</div>
+
+<!--弹出的登陆框-->
+<div id="login">
+    <h3>网站登录 <img class="close" src="img/close.png" alt=""></h3>
+    <div class="login_form">
+        <div class="info"></div>
+        <div class="user">
+            <label for="">账号:</label>
+            <input type="text" value="">
+        </div>
+        <div class="pass">
+            <label for="">密码:</label>
+            <input type="password" value="">
+        </div>
+        <div class="button">
+            <input type="button" value="">
+        </div>
+        <div class="other">
+            <a href="javaScript:;">注册新用户</a> | <a href="javascript:;">忘记密码?</a>
+        </div>
+    </div>
+</div>
+
+<!--遮罩层-->
+<div id="screen"></div>
+</body>
+</html>
