@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #box{width: 150px; height: 150px; background: red; position: absolute; left:0px; top: 50px;}
+        #x{width: 1px; height: 500px; background: #000; position: absolute; left: 1000px; top: 50px;}
+    </style>
+</head>
+<body>
+<button id="btn">animate</button>
+<div id="box"></div>
+<div id="x"></div>
+</body>
+</html>
+<script>
+    var count = 1000;
+    var num = 0;
+    var step = 10;
+    btn.onclick = function () {
+        window.timer = null;
+        window.timer = setInterval(function () {
+            num++;
+            step+=10;
+            if(step > 0 && Math.abs((box.offsetLeft - count)) < step){
+                    box.style.left = step + "px";
+                    clearInterval(timer)
+            }else if(step < 0 && (box.offsetLeft - count) < Math.abs(step)){
+                    box.style.left = step + "px"
+            }
+            box.style.left = step + "px"
+
+            console.log("第"+ num + "次","移动的距离为:" + Math.floor(count))
+        },30)
+    }
+
+</script>

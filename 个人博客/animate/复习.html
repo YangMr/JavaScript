@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #box{width: 150px; height: 150px; background: red; position: absolute; left:0; top: 50px;}
+        #x{width: 1px; height: 500px; background: #000; position: absolute; left: 500px; top: 50px;}
+    </style>
+</head>
+<body>
+    <button id="btn">animate</button>
+    <div id="box"></div>
+    <div id="x"></div>
+</body>
+</html>
+<script>
+
+    var oBtn = document.getElementById("btn");
+    var oBox = document.getElementById("box");
+
+    oBtn.onclick = function () {
+        speed(oBox,"left",500,27)
+
+    }
+
+    function speed(obj,attr,target,step) {
+        var timer = setInterval(function () {
+            obj.style[attr] = getStyle(obj,attr) +step + "px";
+            if(getStyle(obj,attr) >= target){
+                obj.style[attr] = target + "px";
+                clearInterval(timer);
+            }
+        },30)
+    }
+
+    function getStyle(obj,attr) {
+        var value = null;
+        if(window.getComputedStyle){
+            value = window.getComputedStyle(obj,false)[attr];
+        }else if(obj.currentStyle){
+            value = obj.currentStyle[attr];
+        }
+        return parseInt(value);
+    }
+
+</script>

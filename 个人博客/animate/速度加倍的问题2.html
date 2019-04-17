@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #box{width: 150px; height: 150px; background: red; position: absolute; left:0px; top: 50px;}
+        #x{width: 1px; height: 500px; background: #000; position: absolute; left: 1000px; top: 50px;}
+    </style>
+</head>
+<body>
+    <button id="btn">animate</button>
+    <div id="box"></div>
+    <div id="x"></div>
+</body>
+</html>
+<script>
+
+    var oBtn = document.getElementById("btn");
+    var oBox = document.getElementById("box");
+
+    oBtn.onclick = function () {
+        speed({
+            element : oBox,   //要移动的元素
+            attr : "x",        //移动的方向
+            start : 0,          //起始位置
+            alter : 1000,       //移动的距离  也就是  目标点
+            step : 27,          //每次移动的步长
+            t : 30              //时间
+        })
+
+    }
+
+    function speed(obj) {
+            clearInterval(window.timer);
+            var attr = obj['attr'] == 'x' ? 'left' : obj['attr'] == 'y' ? 'top' : 'left';
+            var start = obj['start'] != undefined ? obj['start'] : getStyle(obj[element], attr);
+            var t = obj['t'] != undefined  ? obj['t'] : 50;
+            var step = obj['step'] != undefined ? obj['step'] : 10;
+            var target = obj['alter'] + start;
+            window.timer = setInterval(function () {
+                start += step;
+                obj.element.style[attr] = start +step + "px";
+                if(step > 0 && getStyle(obj.element,attr) >= target){
+                    obj.element.style[attr] = target + "px";
+                    clearInterval(timer);
+                }else if(step < 0 && getStyle(obj.element,attr) <= target){
+                    obj.element.style[attr] = target + "px";
+                    clearInterval(timer);
+                }
+        },t)
+    }
+
+    function getStyle(obj,attr) {
+        var value = null;
+        if(window.getComputedStyle){
+            value = window.getComputedStyle(obj,false)[attr];
+        }else if(obj.currentStyle){
+            value = obj.currentStyle[attr];
+        }
+        return parseInt(value);
+    }
+
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="animated.js"></script>
+    <style>
+        html,body,div,ul,li,span{margin: 0; padding: 0;}
+        #banner{width: 900px; overflow: hidden; height:150px; border:1px solid #ccc; margin: 100px auto; position: relative; }
+        #banner ul{list-style-type: none; width: 2700px; position: absolute; left: 0; top: 0;}
+        #banner ul li{float: left; width: 900px;}
+        #banner #circle{width: 100%; height: 20px; position: absolute; bottom:0; left: 0; text-align: center; background: rgba(0,0,0,0.4);}
+        #banner #circle span{display: inline-block; width: 15px; height: 15px; border-radius: 50%;  background: #fff; color: #f60; font-size: 12px; cursor: pointer; text-align: center; line-height: 15px;}
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <ul>
+            <li><img src="img/banner1.jpg" alt=""></li>
+            <li><img src="img/banner2.jpg" alt=""></li>
+            <li><img src="img/banner3.jpg" alt=""></li>
+        </ul>
+        <div id="circle">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+    var aSpan = document.getElementById("circle").getElementsByTagName("span");
+    var oUl = document.getElementById("banner").getElementsByTagName("ul")[0];
+    for(var i=0;i<aSpan.length;i++){
+        aSpan[i].index = i;
+        aSpan[i].onclick = function () {
+            speed({
+                element : oUl,
+                attr : "x",
+                target : -900 * (this.index),
+                step : 10,
+                t : 30,
+                type : "buffer"
+            })
+        }
+    }
+
+
+</script>
