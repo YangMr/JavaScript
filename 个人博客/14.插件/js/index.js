@@ -30,6 +30,7 @@ window.onload = function () {
     })
 
     //登陆框拖拽效果
-    //登陆框拖拽效果
     login.drag([$().getTagName("h3").getElement(0)])
+
+
 }

@@ -99,8 +99,13 @@ Base.prototype.click = function (fn) {
     return this;
 };
 
-//设置获取某一个节点元素方法
+//获取某一个节点，并返回这个节点对象
 Base.prototype.getElement = function (num) {
+    return this.elements[num];
+};
+
+//设置获取某一个节点元素方法
+Base.prototype.eq = function (num) {
     var element = this.elements[num];
     this.elements = [];
     this.elements[0] = element;
@@ -185,7 +190,7 @@ Base.prototype.resize = function (fn) {
     return this;
 }
 //拖拽效果
-Base.prototype.drag = function () {
+/*Base.prototype.drag = function () {
     for (var i = 0; i < this.elements.length; i ++) {
         addEvent(this.elements[i], 'mousedown', function (e) {
             if (trim(this.innerHTML).length == 0) e.preventDefault();
@@ -235,7 +240,15 @@ Base.prototype.drag = function () {
         });
     }
     return this;
-}
+}*/
+
+//插件入口
+Base.prototype.extend = function (name, fn) {
+    Base.prototype[name] = fn;
+};
+
+
+
 var $ = function (_this) {
     return new Base(_this);
 };

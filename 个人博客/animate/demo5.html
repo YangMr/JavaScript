@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{width: 150px; height: 150px; background: red; position: absolute; left: 0; top: 50px;}
+        #box1{width: 150px; height: 150px; background: red; position: absolute; left: 0; top: 250px;}
+        #x{height: 500px; width: 1px; background: #000; position: absolute; left: 500px; top: 50px;}
+    </style>
+</head>
+<body>
+    <button id="btn">animate</button>
+    <div id="box"></div>
+    <div id="box1"></div>
+
+    <div id="x"></div>
+</body>
+</html>
+<script>
+    // var num = 20;
+    var timer = null;
+    var timer1 = null;
+    btn.onclick = function () {
+        // num+=10
+        timer=setInterval(function () {
+            box.style.left = box.offsetLeft + 2 + "px";
+            if(box.offsetLeft == 500){
+                clearInterval(timer)
+            }
+        },30)
+        timer1=setInterval(function () {
+            box1.style.left = box1.offsetLeft + 1 + "px";
+            if(box1.offsetLeft == 700){
+                clearInterval(timer1)
+            }
+        },30)
+    }
+
+</script>

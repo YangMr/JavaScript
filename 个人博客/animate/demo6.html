@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{width: 150px; height: 150px; background: red; position: absolute; left: 0; top: 50px;}
+        #box1{width: 150px; height: 150px; background: red; position: absolute; left: 0; top: 250px;}
+        #x{height: 500px; width: 1px; background: #000; position: absolute; left: 500px; top: 50px;}
+    </style>
+</head>
+<body>
+    <button id="btn">animate</button>
+    <div id="box"></div>
+    <div id="box1"></div>
+
+    <div id="x"></div>
+</body>
+</html>
+<script>
+    // var num = 20;
+    var timer = null;
+    var timer1 = null;
+    var box = document.getElementById("box");
+    var box1 = document.getElementById("box1");
+    btn.onclick = function () {
+        // num+=10
+        console.log(getStyle(box,"left"))
+        timer=setInterval(function () {
+            box.style.left = box.offsetLeft + 2 + "px";
+            if(getStyle(box,"left") == 500){
+                clearInterval(timer)
+            }
+        },30)
+        timer1=setInterval(function () {
+            box1.style.left = box1.offsetLeft + 1 + "px";
+            if(getStyle(box1,"left") == 700){
+                clearInterval(timer1)
+            }
+        },30)
+    }
+
+    function getStyle(obj,attr) {
+        if(window.getComputedStyle){
+            return parseFloat(window.getComputedStyle(obj,false)[attr]);
+        }else{
+            return parseFloat(obj.currentStyle[attr]);
+        }
+    }
+
+</script>
