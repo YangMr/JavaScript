@@ -108,3 +108,4 @@ function getStyle(obj,attr) {
     }
     return value;
 }
+

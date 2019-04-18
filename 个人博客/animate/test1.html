@@ -1,6 +1,5 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html >
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>自动轮播广告（面向对象版）</title>
@@ -21,7 +20,7 @@
 <body>
 <div id="box">
     <div class="list">
-        <ul>
+        <ul id="banner">
             <li><img src="https://www.haorooms.com/uploads/example/jscode_shizhan/lesson10/img/01.jpg" width="490" height="170" /></li>
             <li><img src="https://www.haorooms.com/uploads/example/jscode_shizhan/lesson10/img/02.jpg" width="490" height="170" /></li>
             <li><img src="https://www.haorooms.com/uploads/example/jscode_shizhan/lesson10/img/03.jpg" width="490" height="170" /></li>
@@ -29,8 +28,8 @@
             <li><img src="https://www.haorooms.com/uploads/example/jscode_shizhan/lesson10/img/05.jpg" width="490" height="170" /></li>
         </ul>
     </div>
-    <ul class="count">
-        <li>1</li>
+    <ul class="count" id="count">
+        <li class="current">1</li>
         <li>2</li>
         <li>3</li>
         <li>4</li>
@@ -42,7 +41,50 @@
 <script src="animated.js"></script>
 <script>
 
-    var btnLi = document.getElementsByTagName()
+    var aLi = document.getElementById("count").getElementsByTagName("li");
+    var banner = document.getElementById("banner");
+    var box = document.getElementById("box");
+    for(var i=0; i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+            tab(this.index)
+        }
+    }
 
+    function tab(index) {
+        console.log("111")
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].className = "";
+        }
+        aLi[index].className = "current";
+        animate({
+            element : banner,
+            attr : "y",
+            target: -170 * index,
+            t : 30,
+            step : 20
+        })
+    }
+
+    var num = 0;
+    /*var timer = setInterval(a,30)
+    function a() {
+        console.log(num)
+        num++;
+        if(num == 4)num =0
+        tab(num)
+    }*/
+
+    var tt = setInterval(aa,2000)
+    function aa() {
+        num++;
+        if(num == 5)num =0
+        tab(num)
+    }
+    box.onmouseover = function () {
+        clearInterval(tt);
+    }
+    box.onmouseout = function () {
+       tt = setInterval(aa,2000)
+    }
 </script>
-
