@@ -1,0 +1,22 @@
+body{background: #fff;}
+.header{width: 100%; background: url("../img/header_bg.png") repeat-x;}
+.header .header-center{width: 900px; margin: 0 auto;}
+.header .header-logo{width: 100px; height:30px; overflow: hidden;}
+.header .header-member,.header .header-register,.header .header-login{cursor: pointer; height:30px; line-height:30px; font-size: 14px;}
+.header .header-member{width: 70px; position: relative; background: url("../img/arrow.png") no-repeat 60px center;}
+.header .header-register,.header .header-login{width: 35px;}
+.header .member{display: none; padding: 10px 0; width: 100px; position: absolute; left:-15px; top: 30px; background: #FBF7E1; border:1px solid #ccc; border-top:none;}
+.header .member li{background: url("../img/arrow3.gif") no-repeat 5px center; text-indent: 25px; height: 25px; line-height: 25px;}
+.header .member li:hover{background:#FFCC00 url("../img/arrow4.gif") no-repeat 5px center; }
+#login{width: 350px; z-index: 9999; background: #fff; display: none; height: 250px; border:1px solid #ccc; position: absolute; }
+#login h3{text-align: center; cursor: move; font-weight: bold; letter-spacing: 1px; height:40px; line-height: 40px; border-bottom: 1px solid #ccc; background: url("../img/login_header.png") repeat-x;}
+#login h3 .close{float: right; font-size: 16px; position: relative; top: 13px; cursor: pointer; right:10px; }
+*+html  #login h3 .close{position: relative; right: 10px; top:-24px;}
+#login .login_form{padding: 20px; }
+#login .user,#login .pass{padding: 5px 0; text-align: center; color: #666;}
+#login .user input,#login .pass input{width: 200px; height: 25px; border:1px solid #ccc; background: #fff;}
+#login .button{text-align: center; padding-top: 17px;}
+#login .button input{width: 107px; cursor: pointer; height: 30px; border:none; outline: none; background: url("../img/login_button.png") no-repeat;  }
+#login .other{text-align: right; padding-top: 13px; font-size: 12px;}
+#login .info{ display: none; font-size: 14px; text-align: center; color: #f60;}
+#screen{position: absolute;  display: none; opacity: 0.3; filter: alpha(opacity=30); left:0; top:0; z-index: 9998; background: #000;}
