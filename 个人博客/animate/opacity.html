@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{width: 200px; height: 200px; background: red; opacity: 0.3; filter: alpha(opacity=30);}
+    </style>
+</head>
+<body>
+    <button id="btn">opacity</button>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+
+btn.onclick = function () {
+    box.style.opacity = 1;
+    box.style.filter = "alpha(opacity="+ 100 +")";
+};
+
+</script>

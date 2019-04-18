@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{width: 200px; height: 200px; background: red; opacity:1; filter: alpha(opacity=100);}
+    </style>
+</head>
+<body>
+    <button id="btn">opacity</button>
+    <div id="box"></div>
+</body>
+</html>
+<script src="animated.js"></script>
+<script>
+
+btn.onclick = function () {
+    animate({
+        element : box,
+        attr : "o",
+        start : 30,
+        target : 100,
+        step : 7
+    })
+};
+
+</script>
