@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/tool.js"></script>
+    <script src="js/base.js"></script>
+    <style>
+        #box{width: 80px; height: 80px; background: #000; position: absolute; left: 100px; top: 100px;}
+    </style>
+</head>
+<body>
+    <button id="show">show</button>
+    <button id="hide">hide</button>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    window.onload = function(){
+       $("#show").click(function () {
+           $("#box").animate({
+               attr : "o",
+               start : 0,
+               target : 100,
+               t : 30,
+               type : 1
+           })
+       })
+
+       $("#hide").click(function () {
+           $("#box").animate({
+               attr : "o",
+               start : 100,
+               target : 0,
+               t : 30
+           })
+       })
+
+    }
+
+
+</script>
