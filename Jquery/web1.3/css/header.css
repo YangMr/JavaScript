@@ -1,0 +1,38 @@
+	@charset "utf-8";
+*{margin:0px; padding:0px;list-style-type:none;text-decoration:none; border:0px;}
+/*头部样式*/
+#Top{width:100%;height:30px;background:#ee1c24;}
+#Top .TopCon{width:1150px; height:30px;  margin:0px auto;/*水平距中*/}
+#Top .TopCon .search{/*width:230px;*/ width:0px;height:30px;float:right;position:relative;/*相对定位*/ overflow:hidden;/*超出部分隐藏*//*display:none;直接隐藏是错的*/}
+#Top .TopCon a{width:30px;height:16px; float:right; font-size:12px;
+					color:#e3e3e3; text-decoration:none; padding:8px 0px 0px 20px;}
+#Top .TopCon a:hover{color:#fff;}
+#Top .TopCon img.seaImg{float:right; padding-top:8px; }
+#Top .TopCon .search input.seaTxt{width:230px;height:20px;line-height:20px; background:#fff; border:0px;
+					border-radius:5px;/*圆角半径*/ position:absolute;/*绝对定位*/ left:0px; top:5px; text-indent:30px;}
+
+#Top .TopCon .search input.seaBut{width:30px;height:20px; background:url("../images/search2.gif") no-repeat center; border:0px; position:absolute; left:0px; top:5px;}
+#Top .TopCon .search label.txt{position:absolute; font-size:12px; left:35px; top:8px; color:#c1c1c1;}
+
+/*banner样式*/
+.banner{width:100%;height:130px; background:#ee1c24; text-align:center; }
+.banner a{ width:245px;height:100px; display:block; margin:0px auto; padding-top:30px;}
+/*导航样式*/
+#Logo{width:100%; height:70px; background:#c6171e;}
+#Logo #LogoCon{width:1180px;height:70px;margin:0px auto;}
+#Logo #LogoCon dl{width:260px;height:60px; padding-top:10px; float:left; padding-right:15px;}
+#Logo #LogoCon dl dt{width:50px;line-height:50px;float:left; font-size:22px; color:#fff; font-family:"微软雅黑"}
+#Logo #LogoCon dl dd{width:200px; height:50px;line-height:25px;  float:right;}
+#Logo #LogoCon dl dd a{color:#fff;text-decoration:none;  font-family:"微软雅黑";
+						padding:0px 14px; position:relative;}
+#Logo #LogoCon dl dd a img.news{position:absolute; left:80px;top:5px; }
+#Logo #LogoCon dl dd a:hover{color:#e989ac;}
+
+#Logo #LogoCon dl.menu2{width:200px;}
+#Logo #LogoCon dl.menu2 dd{width:140px;}
+#Logo #LogoCon dl.menu3{width:230px;}
+#Logo #LogoCon dl.menu3 dd{width:170px;}
+#Logo #LogoCon a.apps{width:150px; height:70px; display:block; background:green; float:left;
+						background:url("../images/app.gif") no-repeat  20px 30px; 
+						}
+#Logo #LogoCon a.apps:hover{background-position:20px 25px;}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>后台管理系统登录</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <div class="login">
+            <div class="loginmain">
+                <h4>登录管理系统</h4>
+                <form action="/" method="get">
+                    
+                    <ul>
+                        <li>
+                            <span>管理员账号：</span>
+                            <input type="text" name="username" value="">
+                        </li>
+                        <li>
+                            <span>管理员密码：</span>
+                            <input type="password" name="password" value="">
+                        </li>
+                        <li>
+                            <span>登录验证码：</span>
+                            <input type="text" name="verify" value="">
+                        </li>
+                        <li>
+                            <div class="verifyimg">
+                                <img src="img/verifyimg.png" height="40" width="230">   
+                            </div>
+                        </li>
+                        <li>
+                            <input type="button" name="loginbtn" value="登录">
+                            <span id="text"></span>
+                        </li>
+                    </ul>
+                
+                </form>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+        <script>
+            $(function () {
+                
+                //表单验证
+                $('input[name="loginbtn"]').click(function(event) {
+                    var $name = $('input[name="username"]');
+                    var $password = $('input[name="password"]');
+                    var $verify = $('input[name="verify"]');
+                    var $text = $('#text');
+                    var _name = $.trim($name.val());
+                    var _password = $.trim($password.val());
+                    var _verify = $.trim($verify.val());
+
+                    if('' == _name){
+                        $text.text('请输入用户名！');
+                        $name.focus();
+                        return;
+                    }
+                    if('' == _password){
+                        $text.text('请输入密码！');
+                        $password.focus();
+                        return;
+                    }
+                    if('' == _verify){
+                        $text.text('请输入请输入验证码！');
+                        $verify.focus();
+                        return;
+                    }
+
+                    $text.text('登录成功，请稍候！');
+
+                });
+            });
+        </script>      
+    </body>
+</html>
