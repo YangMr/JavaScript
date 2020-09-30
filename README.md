@@ -1,2 +1,7 @@
 # JavaScript
-learning JavaScript
+
+avaScript is the world's most popular programming language.
+
+JavaScript is the programming language of the Web.
+
+JavaScript is easy to learn.
